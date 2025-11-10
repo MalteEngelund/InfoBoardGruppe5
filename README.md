@@ -4,7 +4,7 @@ Holdets medlemmer er:
 * Malte (lead programmer)
 * Jack
 * Mathias
-* Marie-Pierre
+* Marie-Pierre Lessard
 * Fillip
 
 Opgavens afleveringsadresse er: 
