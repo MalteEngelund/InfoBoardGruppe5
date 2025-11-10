@@ -11,5 +11,5 @@ Holdets medlemmer er:
 * Marie-Pierre Lessard
 * Fillip
 
-## Kilder (eventuelt med kommentarer):
+## Kilder (eventuelt med kommentarer)
 * 
