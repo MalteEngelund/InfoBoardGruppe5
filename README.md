@@ -3,7 +3,7 @@
 Holdets medlemmer er: 
 * Malte (lead programmer)
 * Jack
-* Mathias
+* Mathias (programing Slave)
 * Marie-Pierre
 * Fillip
 
