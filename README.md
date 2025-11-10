@@ -9,3 +9,6 @@ Holdets medlemmer er:
 
 Opgavens afleveringsadresse er: 
 https://github.com/MalteEngelund/InfoBoardGruppe5/blob/main/README.md
+
+Kilder (eventuelt med kommentarer):
+* 
