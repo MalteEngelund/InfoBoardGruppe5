@@ -1,0 +1,3 @@
+/* The globals namespace includes the partials called mixins, variables, and typography.
+Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
+@use "./partials/globals";
