@@ -1,5 +1,9 @@
 # InfoBoardGruppe5
 
+Opgavens afleveringsadresse er: 
+https://github.com/MalteEngelund/InfoBoardGruppe5/blob/main/README.md
+
+## Medlemmer
 Holdets medlemmer er: 
 * Malte (lead programmer)
 * Jack
@@ -7,8 +11,5 @@ Holdets medlemmer er:
 * Marie-Pierre Lessard
 * Fillip
 
-Opgavens afleveringsadresse er: 
-https://github.com/MalteEngelund/InfoBoardGruppe5/blob/main/README.md
-
-Kilder (eventuelt med kommentarer):
+## Kilder (eventuelt med kommentarer):
 * 
