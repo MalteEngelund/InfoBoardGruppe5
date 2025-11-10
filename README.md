@@ -13,4 +13,4 @@ Holdets medlemmer er:
 
 ## Kilder (eventuelt med kommentarer)
 Udover [HTML-standarden](https://html.spec.whatwg.org), [W3 Schools](https://www.w3schools.com) og [MDN Web Docs](https://developer.mozilla.org), brugte vi de følgende kilder. 
-* 
+* Placeholder
