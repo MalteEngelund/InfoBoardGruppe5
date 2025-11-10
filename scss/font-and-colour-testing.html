@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* IMPORTS A "GOOGLE FONT" */
+        /* @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100;200;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Creepster&display=swap'); */
+        
+        /* Font weights 
+        The numerical values are as follows: 
+        •  100 – Thin 
+        •  200 – Extra Light (Ultra Light) 
+        •  300 – Light 
+        •  400 – Normal 
+        •  500 – Medium 
+        •  600 – Semi Bold (Demi Bold) 
+        •  700 – Bold 
+        •  800 – Extra Bold (Ultra Bold) 
+        •  900 – Black (Heavy) 
+        https://www.udacity.com/blog/2021/01/html-css-font-weight.html  
+        */
+        
+        @font-face {
+            font-family: 'Smooch Sans';
+            src: url(assets/fonts/SmoochSans-VariableFont_wght.ttf) format('truetype');
+            font-display: swap;
+            font-weight: 100 900;
+        }
+        
+        @font-face {
+            font-family: 'Bebas Neue';
+            src: url(assets/fonts/BebasNeue-Regular.ttf) format('truetype');
+            font-display: swap;
+            font-weight: 100 900;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* VARIABLES IN HTML: */
+        :root {
+            /* 13 farver */
+            --fjord: #425462;
+            --nepal: #97b7c4;
+            --wu-safety-orange: #f4690c;
+            --lighter-than-safety-orange: #f0732a;
+            --transparent-orange: #f4690cda;
+            --wu-manhattan: #f7c894;
+            --more-pink-than-manhattan: #ffc693;
+            --transparent-beige: #f7c994cd;
+            --tg-dark-yellow: #f0a900;
+            --tg-light-yellow: #f5c961;
+            --mg-dark-green: #146e57;
+            --mg-light-green: #97bdac;
+            --very-light-green: #d5e2d8; 
+        }
+        
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--black);
+            color: var(--light);
+        }
+        
+        .color-test-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        
+        .a100 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 100;
+        }
+        .a200 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 200;
+        }
+        .a300 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 300;
+        }
+        .a400 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 400;
+        }
+        .a500 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 500;
+        }
+        .a600 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 600;
+        }
+        .a700 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 700;
+        }
+        .a800 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 800;
+        }
+        .a900 {
+            font-family:'Bebas Neue'; 
+            font-size: 4rem;
+            font-weight: 900;
+        }
+        
+        .b100 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 100;
+        }
+        .b200 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 200;
+        }
+        .b300 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        .b400 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .b500 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .b600 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .b700 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .b800 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 800;
+        }
+        .b900 {
+            font-family:'Smooch Sans'; 
+            font-size: 1rem;
+            font-weight: 900;
+        }
+        .fjord {
+            background-color: var(--fjord);
+            color: black;
+        }
+        .nepal {
+            background-color: var(--nepal);
+        }
+        .wu-safety-orange {
+            background-color: var(--wu-safety-orange);
+        }
+        /* .lighter-than-safety-orange {
+            background-color: var(--lighter-than-safety-orange);
+        } */
+        .transparent-orange {
+            background-color: var(--transparent-orange);
+        }
+        .wu-manhattan {
+            background-color: var(--wu-manhattan);
+        }
+        /* .more-pink-than-manhattan {
+            background-color: var(--more-pink-than-manhattan);
+        } */
+        .transparent-beige {
+            background-color: var(--transparent-beige);
+        }
+        .tg-dark-yellow {
+            background-color: var(--tg-dark-yellow);
+        }
+        .tg-light-yellow {
+            background-color: var(--tg-light-yellow);
+        }
+        .mg-dark-green {
+            background-color: var(--mg-dark-green);
+        }
+        .mg-light-green {
+            background-color: var(--mg-light-green);
+        }
+        .very-light-green {
+            background-color: var(--very-light-green);
+        }
+
+        .greyish-blue {
+            background-color: var(--clr-greyish-blue);
+        } 
+        .bright-blue {
+            background-color: var(--clr-bright-blue);
+        }
+        .medium-blue {
+            background-color: var(--clr-medium-blue);
+        }
+        .bright-green {
+            background-color: var(--clr-bright-green);
+        }
+        .medium-green {
+            background-color: var(--clr-medium-green);
+        }
+    </style>        
+    <title>Font and Colour Testing</title>
+</head>
+<body>
+    <header>
+        <h1>Font and Colour Testing</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Bebas Neue Regular</h2>
+            <p class="a100">Bebas Neue 100</p>
+            <p class="a200">Bebas Neue 200</p>
+            <p class="a300">Bebas Neue 300</p>
+            <p class="a400">Bebas Neue 400</p>
+            <p class="a500">Bebas Neue 500</p>
+            <p class="a600">Bebas Neue 600</p>
+            <p class="a700">Bebas Neue 700</p>
+            <p class="a800">Bebas Neue 800</p>
+            <p class="a900">Bebas Neue 900</p>
+        </section>
+        <section>
+            <h2>Smooch Sans</h2>
+            <p class="b100">Smooch Sans 100</p>
+            <p class="b200">Smooch Sans 200</p>
+            <p class="b300">Smooch Sans 300</p>
+            <p class="b400">Smooch Sans 400</p>
+            <p class="b500">Smooch Sans 500</p>
+            <p class="b600">Smooch Sans 600</p>
+            <p class="b700">Smooch Sans 700</p>
+            <p class="b800">Smooch Sans 800</p>
+            <p class="b900">Smooch Sans 900</p>
+        </section>
+        <section>
+            <h2>Colour Test</h2> 
+            <div class="color-test-grid"> 
+                <div class="fjord">fjord</div> 
+                <div class="nepal">nepal</div> 
+                <div class="wu-safety-orange">wu-safety-orange</div> 
+                <div class="lighter-than-safety-orange">lighter-than-safety-orange</div> 
+                <div class="transparent-orange">transparent-orange</div> 
+                <div class="wu-manhattan">wu-manhattan</div> 
+                <div class="more-pink-than-manhattan">more-pink-than-Manhattan</div> 
+                <div class="transparent-beige">transparent-beige</div> 
+                <div class="tg-dark-yellow">tg-dark-yellow</div> 
+                <div class="tg-light-yellow">tg-light-yellow</div> 
+                <div class="mg-dark-green">mg-dark-green</div> 
+                <div class="mg-light-green">mg-light-green</div> 
+                <div class="very-light-green">very-light-green</div> 
+
+                <div class="success">success</div> 
+                <div class="bright-green">bright green</div> 
+                <div class="medium-green">medium green</div> 
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="copyright"><small>© Copyright 2025. Font- og farvetest kodnet af Marie-Pierre Lessard.</small></div>
+    </footer>
+</body>
+</html>

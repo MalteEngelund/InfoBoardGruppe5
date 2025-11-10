@@ -1,7 +1,26 @@
-// colors
-$color-primary: #f0732a;
-$color-secondary: #ffc693;
-$color-accent: #f0a900;
-$color-surface: #97bdac;
-$color-text: #146e57;
-$color-background: #d5e2d8;
+/* Colours 
+WU = web udvikler
+TG = teknisk grafiker
+MG = mediegrafiker
+*/
+/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
+$color-fjord: #425462; //Figma: Lucia Corona, Visual Designer (baggrunden til den venstre kolonne)
+$color-nepal: #97b7c4; //Figma: Lucia Corona, Visual Designer (MEN: lysgrå prikker til højre: #758f9d; til venstre: #86a1ab; farverne er ikke gennemsigtige)
+$color-wu-safety-orange: #f4690c; //Figma: Lucia Corona, Visual Designer (farve fundet med ColorZilla; matcher mørk farven til WU i designet)
+// $color-lighter-than-safety-orange: #f0732a; //Figma: Peterson Design House, Color Inspiration #007 
+/* Gennemsigtig farve */
+$color-transparent-orange: #f4690cda; // Maybe:#ea6207cd ColorZilla farver er afviste: mørkorange prikker til højre har mange indre farver, nok fordi farven er gennemsigtig: f.eks. bl.a.: #ad612e eller #b26128 (begge er brune, ikke orange)
+$color-wu-manhattan: #f7c894; //Figma: Lucia Corona, Visual Designer (matcher lys farve til WU)
+// $color-more-pink-than-manhattan: #ffc693; //Figma: Peterson Design House, Color Inspiration #007 (manhattan is more beige)
+/* Gennemsigtig farve */
+$color-transparent-beige: #f7c994cd; // ColorZilla farver er afviste: dark beige, very grey: #bba27e and #b59d7a and #b39b78 and #b39b78
+$color-tg-dark-yellow: #f0a900; //Figma: Peterson Design House, Color Inspiration #007 (FileZilla says #f0a901 in the design, but the free app might be slightly inaccurate) 
+$color-tg-light-yellow: #f5c961; //Figma: matcher lys gul farve til tekniske grafikere
+$color-mg-dark-green: #146e57; //Figma: Peterson Design House, Color Inspiration #007 (FileZilla says #146d57 in the design, but the free app might be slightly inaccurate)
+$color-mg-light-green: #97bdac; //Figma: Peterson Design House, Color Inspiration #007 (FileZilla says #97beac in the design, but the free app might be slightly inaccurate)
+$color-very-light-green: #d5e2d8; //Figma: Peterson Design House, Color Inspiration #007 
+$color-white: #ffffff; //Tekstfarve
+
+/* Font sizes */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
+TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
