@@ -13,6 +13,15 @@ columnThreeByMariePierreLessard.classList("right-column-by-Marie-Pierre-Lessard"
 infoboardRoot.append(columnOneByMariePierreLessard, columnTwoByMariePierreLessard, columnThreeByMariePierreLessard);
 
 /* TO DO: 
-append sections to relevant column */
+append sections to relevant column 
+
+For eksempel:
+
+const busScheduleByMalte = mainBusController();
+busScheduleByMalte.classList("global-styling-for-coloured-lines-by-Marie-Pierre-Lessard span-element-styling-by-Malte");
+columnOneByMariePierreLessard.append(busScheduleByMalte);
+
+*/
+
 
 
