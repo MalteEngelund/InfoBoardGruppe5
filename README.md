@@ -1,7 +1,7 @@
 # InfoBoardGruppe5
 
 Holdets medlemmer er: 
-* Malte
+* Malte (lead programmer)
 * Jack
 * Mathias
 * Marie-Pierre
