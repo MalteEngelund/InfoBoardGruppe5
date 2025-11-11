@@ -1,3 +1,7 @@
+/* Example of import that goes with the 2nd example below.
+import {busScheduleViewFunction} from "./view/organisms/busScheduleView.js";
+*/
+
 /* Eksempel af kodning til appens container til forskellige sektioner (klassenavne er ikke endelige) */
 
 const infoboardRootByMariePierreLessard = document.getElementById("app");
@@ -17,11 +21,12 @@ append sections to relevant column
 
 For eksempel:
 
-const busScheduleByMalte = busScheduleViewFunction();
+const busScheduleByMalte = busScheduleViewFunction(argument1, argument2);
 busScheduleByMalte.classList("global-styling-for-coloured-lines-by-Marie-Pierre-Lessard span-element-styling-by-Malte");
 columnOneByMariePierreLessard.append(busScheduleByMalte);
 
 */
+
 
 
 
