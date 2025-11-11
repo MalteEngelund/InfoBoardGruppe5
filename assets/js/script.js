@@ -23,9 +23,10 @@ For eksempel:
 
 const busScheduleByMalte = busScheduleViewFunction(argument1, argument2);
 busScheduleByMalte.classList("global-styling-for-coloured-lines-by-Marie-Pierre-Lessard span-element-styling-by-Malte");
-columnOneByMariePierreLessard.append(busScheduleByMalte);
+columnOneByMariePierreLessard.append(busScheduleByMalte(argument1, argument2));
 
 */
+
 
 
 
