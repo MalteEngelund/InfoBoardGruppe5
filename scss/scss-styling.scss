@@ -2,6 +2,13 @@
 Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
 @use "./partials/globals";
 
+/* TO DO
+CSS reset
+backgrounds for 1st and 2nd columns
+coloured lines (100% the width of parent)
+...
+*/
+
 html {
     font-size: 16px;
 }
