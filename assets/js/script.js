@@ -9,12 +9,16 @@ infoboardRoot.classList("infoboard-grid-by-Marie-Pierre-Lessard");
 
 const columnOneByMariePierreLessard = Div();
 columnOneByMariePierreLessard.classList("left-infoboard-column-by-Marie-Pierre-Lessard");
-const columnTwoByMariePierreLessard = Div();
-columnTwoByMariePierreLessard.classList("central-infoboard-column-by-Marie-Pierre-Lessard");
-const columnThreeByMariePierreLessard = Div();
-columnThreeByMariePierreLessard.classList("right-infoboard-column-by-Marie-Pierre-Lessard");
 
-infoboardRoot.append(columnOneByMariePierreLessard, columnTwoByMariePierreLessard, columnThreeByMariePierreLessard);
+const columnTwoByMariePierreLessard = Div();
+columnTwoByMariePierreLessard.classList("right-infoboard-column-by-Marie-Pierre-Lessard");
+const columnTwoLeftByMariePierreLessard = Div();
+columnTwoLeftByMariePierreLessard.classList("left-side-of-column-two-by-Marie-Pierre-Lessard");
+const columnTwoRightByMariePierreLessard = Div();
+columnTwoRightByMariePierreLessard.classList("right-side-of-column-two-by-Marie-Pierre-Lessard");
+columnTwoByMariePierreLessard.append(columnTwoLeftByMariePierreLessard, columnTwoRightByMariePierreLessard);
+
+infoboardRoot.append(columnOneByMariePierreLessard, columnTwoByMariePierreLessard);
 
 /* TO DO: 
 append sections to relevant column 
@@ -26,6 +30,7 @@ busScheduleByMalte.classList("global-styling-for-coloured-lines-by-Marie-Pierre-
 columnOneByMariePierreLessard.append(busScheduleByMalte(argument1, argument2));
 
 */
+
 
 
 
