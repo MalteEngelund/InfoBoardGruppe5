@@ -1,8 +1,10 @@
 import { BusScheduleController } from './controller/busScheduleController.js';
 import BusScheduleModel from './model/busScheduleModel.js';
+import BusScheduleView from './view/busScheduleView.js';
 
 const model = new BusScheduleModel();
-// view not implemented yet — pass null so controller runs without rendering
-const controller = new BusScheduleController(model, null, { poll: 30000 });
+const view = new BusScheduleView('#busScheduleByMathias');
+// Poll interval: 300000ms = 5 minutes
+const controller = new BusScheduleController(model, view, { poll: 300000 });
 controller.start();
-window.app = { model, view: null, controller };
+window.app = { model, view, controller };
