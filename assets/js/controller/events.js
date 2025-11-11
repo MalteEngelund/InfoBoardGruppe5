@@ -1,3 +1,4 @@
+// Hjælper med at binde klik på dagstitler i venstre liste (delegation).
 export function bindDayTitleClicks(listWrap, handler) {
   if (!listWrap) return;
   listWrap.addEventListener('click', (e) => {

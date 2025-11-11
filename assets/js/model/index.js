@@ -1,6 +1,7 @@
 import { fetchRawMenu } from './fetcher.js';
 import { parseDaysFromJsonObject } from './parser.js';
 
+// Model: samler fetcher + parser og returnerer { days, week, raw } til controller.
 const Model = {
   async fetchData() {
     const { res, raw } = await fetchRawMenu();

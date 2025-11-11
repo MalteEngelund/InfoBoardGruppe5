@@ -1,3 +1,4 @@
+// Opretter venstre header (titel + uge-badge). Returnerer DOM-node.
 export function createLeftHeader(week) {
   const leftHeader = document.createElement('div');
   leftHeader.className = 'left-header';

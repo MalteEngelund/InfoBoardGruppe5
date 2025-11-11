@@ -1,3 +1,4 @@
+// Opretter højre kolonne (detalje-view) og returnerer { right, details }.
 export function createRightColumn() {
   const right = document.createElement('div');
   right.className = 'right-col';

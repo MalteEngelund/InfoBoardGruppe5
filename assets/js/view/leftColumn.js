@@ -1,3 +1,5 @@
+// Opretter venstre kolonne med liste over dage.
+// Returnerer { left, listWrap } hvor listWrap bruges til event-binding.
 export function createLeftColumn(days) {
   const left = document.createElement('div');
   left.className = 'left-col';

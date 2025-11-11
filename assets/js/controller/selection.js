@@ -1,3 +1,4 @@
+// Hjælpefunktioner til at konvertere day-name til ugedags-index og finde dagens index i data.
 export function dayNameToIndex(name) {
   if (!name) return null;
   const s = name.toLowerCase();

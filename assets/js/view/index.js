@@ -2,14 +2,17 @@ import { createLeftHeader } from './header.js';
 import { createLeftColumn } from './leftColumn.js';
 import { createRightColumn } from './rightColumn.js';
 
+// View: bygger og opdaterer DOM. Returnerer noder controlleren bruger til events.
 export class View {
   constructor(rootId = 'app') {
+    // rootId: id på element hvor app'en renderes (standard 'app')
     this.app = document.getElementById(rootId) || document.body;
   }
 
   clear() { this.app.innerHTML = ''; }
 
   renderError(message, raw) {
+    // Vis simpel fejl-box med besked og evt. rå respons (forkortet)
     this.clear();
     const box = document.createElement('div');
     box.className = 'canteen-box';
@@ -22,6 +25,8 @@ export class View {
   }
 
   renderMainGrid(days, week) {
+    // Byg hoved-layout: venstre (liste) og højre (detaljer)
+    // Returnerer { listWrap, details } så Controller kan binde events og opdatere detaljer.
     this.clear();
     const container = document.createElement('div'); container.className = 'menu-grid';
 
@@ -40,6 +45,7 @@ export class View {
   }
 
   renderDetails(detailsNode, dayObj) {
+    // Opdater højre kolonne med retterne for den valgte dag
     detailsNode.innerHTML = '';
     if (dayObj && dayObj.dishes && dayObj.dishes.length) {
       const ul = document.createElement('ul');

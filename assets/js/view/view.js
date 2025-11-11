@@ -1,10 +1,13 @@
 export class View {
+  // rootId: id på container hvor vi renderer app (standard 'app')
   constructor(rootId = 'app') {
     this.app = document.getElementById(rootId) || document.body;
   }
 
+  // Ryd root-element
   clear() { this.app.innerHTML = ''; }
 
+  // Simpelt error-view — viser fejlbesked og kort rå respons hvis tilgængelig
   renderError(message, raw) {
     this.clear();
     const box = document.createElement('div');
@@ -17,6 +20,8 @@ export class View {
     this.app.appendChild(box);
   }
 
+  // Bygger hoved-layout: venstre kolonne (liste) + højre kolonne (detaljer)
+  // Returnerer noder (listWrap, details) som controller bruger til event-binding og opdatering
   renderMainGrid(days, week) {
     this.clear();
     const container = document.createElement('div'); container.className = 'menu-grid';
@@ -30,6 +35,7 @@ export class View {
     }
     left.appendChild(leftHeader);
 
+    // Liste af dage: hver dag indeholder en titel og en ul med retter
     const listWrap = document.createElement('div'); listWrap.className = 'days-list';
     days.forEach((d, idx) => {
       const item = document.createElement('div'); item.className = 'day-list-item'; item.dataset.index = idx;
@@ -47,7 +53,7 @@ export class View {
     });
     left.appendChild(listWrap);
 
-    // right column
+    // right column (detalje-visning)
     const right = document.createElement('div'); right.className = 'right-col';
     const rightHeader = document.createElement('h2'); rightHeader.textContent = 'Dagens ret'; right.appendChild(rightHeader);
     const details = document.createElement('div'); details.className = 'today-details'; right.appendChild(details);
@@ -56,10 +62,11 @@ export class View {
     container.appendChild(right);
     this.app.appendChild(container);
 
-    // expose nodes for controller
+    // Returner de noder controller har brug for
     return { listWrap, details, visibleDaysContainer: left };
   }
 
+  // Opdater højre kolonne med retterne for den valgte dag
   renderDetails(detailsNode, dayObj) {
     detailsNode.innerHTML = '';
     if (dayObj && dayObj.dishes && dayObj.dishes.length) {
