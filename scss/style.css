@@ -1,3 +1,14 @@
+@charset "UTF-8";
+:root {
+  --base-font-size: 18px;
+  --left-rows: 5;
+  --row-height: 78px;
+  --box-bg: #425462;
+  --box-text: #ffffff;
+  --box-muted: #d7dde6;
+  --box-accent: rgba(255,255,255,0.08);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f7fa;
@@ -14,17 +25,14 @@ body {
   gap: 18px;
   max-width: 1400px;
   margin: 0 auto;
-  /* Ændret så kolonnerne strækkes til samme højde */
   align-items: stretch;
 }
 
-/* sørg for venstre kolonne er en kolonne-flex så dens indhold måles korrekt */
 .left-col {
   display: flex;
   flex-direction: column;
 }
 
-/* days-list holder fast højde (som før) */
 .days-list {
   display: flex;
   flex-direction: column;
@@ -48,12 +56,22 @@ body {
   text-align: left;
   font-size: 0.95rem;
 }
+.day-card:hover {
+  background: #f3f7ff;
+}
+.day-card.selected {
+  background: #1a73e8;
+  color: #fff;
+  border-color: rgba(26, 115, 232, 0.6);
+}
 
-.day-card:hover { background: #f3f7ff; }
-.day-card.selected { background: #1a73e8; color: #fff; border-color: rgba(26,115,232,0.6); }
+.day-name-small {
+  font-weight: 700;
+}
 
-.day-name-small { font-weight: 700; }
-.dish-count { font-size: 0.85rem; }
+.dish-count {
+  font-size: 0.85rem;
+}
 
 /* hver dag i venstre kolonne (fuld liste) */
 .day-list-item {
@@ -63,51 +81,41 @@ body {
   border: 1px solid #eee;
   font-size: 1rem;
 }
-
-/* valgte element */
 .day-list-item.selected {
   background: #1a73e8;
   color: #fff;
-  border-color: rgba(26,115,232,0.6);
+  border-color: rgba(26, 115, 232, 0.6);
 }
-
-.day-name-left {
+.day-list-item .day-name-left {
   margin: 0 0 8px 0;
-  font-size: 1.15rem; /* større */
+  font-size: 1.15rem;
   font-weight: 800;
   cursor: pointer;
 }
-
 .day-list-item ul {
   margin: 0;
   padding-left: 1.1rem;
 }
-
 .day-list-item li {
   margin: 4px 0;
   line-height: 1.3;
 }
 
-/* right column */
 .right-col {
   display: flex;
   flex-direction: column;
-  align-self: stretch; /* sikrer den fylder grid-cellen */
+  align-self: stretch;
   padding: 24px;
   background: var(--box-bg);
   color: var(--box-text);
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  /* fjern tidligere faste min-height så grid bestemmer højden */
+  border-radius: 0; /* uden afrundede hjørner */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   min-height: 0;
 }
-
-.right-col h2 { 
-  margin-top: 0; 
-  font-size: 1.35rem; /* øget */
+.right-col h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
 }
-
-/* Center tekst i dagens ret */
 .right-col .today-details {
   flex: 1 1 auto;
   display: flex;
@@ -115,27 +123,23 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-
-/* gør indhold i dagens ret tydeligere */
-.today-details h3 { 
-  margin: 0 0 12px 0; 
-  font-size: 1.3rem; /* øget */
+.right-col .today-details h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
   font-weight: 700;
 }
-.day-date { 
-  margin: 6px 0 12px 0; 
-  color: #666; 
+.right-col .day-date {
+  margin: 6px 0 12px 0;
+  color: #666;
   font-size: 1.02rem;
 }
-/* Vis listen som en centreret blok; behold læsbar venstrestilling inde i blokken hvis ønsket */
 .right-col ul {
   margin: 0;
   padding-left: 0;
   display: inline-block;
-  text-align: center; /* centrerer li-teksten */
+  text-align: center;
   list-style-position: inside;
 }
-/* center li-teksten */
 .right-col li {
   margin: 10px 0;
   line-height: 1.6;
@@ -148,7 +152,7 @@ body {
   width: 10px;
 }
 .days-list::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 6px;
 }
 .days-list::-webkit-scrollbar-track {
@@ -157,32 +161,33 @@ body {
 
 /* responsive */
 @media (max-width: 880px) {
-  :root { --base-font-size: 16px; }
-  .menu-grid { grid-template-columns: 1fr; }
-  .right-col { order: 2; margin-top: 12px; padding: 16px; min-height: auto; align-self: auto; }
-  .right-col h2 { font-size: 1.15rem; }
-  .today-details h3 { font-size: 1.05rem; }
+  :root {
+    --base-font-size: 16px;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  .right-col {
+    order: 2;
+    margin-top: 12px;
+    padding: 16px;
+    min-height: auto;
+    align-self: auto;
+  }
+  .right-col h2 {
+    font-size: 1.15rem;
+  }
+  .today-details h3 {
+    font-size: 1.05rem;
+  }
 }
-
-/* CSS variables */
-:root {
-  --base-font-size: 18px; /* tidligere implicit, nu større */
-  --left-rows: 5;
-  --row-height: 78px;
-  /* Farve-variabler til boks-udseende */
-  --box-bg: #425462;
-  --box-text: #ffffff;
-  --box-muted: #d7dde6;
-  --box-accent: rgba(255,255,255,0.08);
-}
-
 /* Generel boksbaggrund - anvendes hvor vi har .canteen-box, .left-col, .right-col */
 .canteen-box,
 .left-col,
 .right-col {
   background: var(--box-bg);
   color: var(--box-text);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* Store overskrifter i bokse skal være hvide */
@@ -195,10 +200,21 @@ body {
 }
 
 /* week-badge styling tilpasset mørk baggrund */
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.left-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 .week-badge {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--box-text);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 6px 10px;
   border-radius: 6px;
   font-weight: 600;
@@ -207,45 +223,28 @@ body {
 
 /* Dags-elementer: let transparent baggrund så de står frem på mørk baggrund */
 .day-list-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--box-text);
 }
-
-/* farve på liste-tekster (retter) lidt lysere for læsbarhed */
 .day-list-item ul li,
-.right-col li,
 .day-list-item p,
-.day-date {
-  color: #e6eef6; /* lys, men ikke helt hvid */
+.day-list-item .day-date {
+  color: #e6eef6;
 }
 
 /* valgt dag styling */
 .day-list-item.selected {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   color: var(--box-text);
-  border-color: rgba(255,255,255,0.14);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 /* scrollbar styling til mørk baggrund */
 .days-list::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
 }
+
 .days-list::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.06);
-}
-
-/* Hvis der er andre tidligere .canteen-box regler, beholdes de ellers overskrives af ovenstående */
-
-.left-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Sørg for h2 og badge står pænt på samme linje */
-.left-header h2 {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1;
-}
+  background: rgba(0, 0, 0, 0.06);
+}/*# sourceMappingURL=style.css.map */
