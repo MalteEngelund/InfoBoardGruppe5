@@ -1,11 +1,8 @@
-// ...existing code...
+import { BusScheduleController } from './controller/busScheduleController.js';
 import BusScheduleModel from './model/busScheduleModel.js';
-import BusScheduleView from './view/busScheduleView.js';
-import BusScheduleController from './controller/busScheduleController.js';
 
-// safe to run immediately because module scripts are deferred
 const model = new BusScheduleModel();
-const view = new BusScheduleView('#busScheduleByMathias');
-const controller = new BusScheduleController(model, view, { poll: 30000 });
+// view not implemented yet — pass null so controller runs without rendering
+const controller = new BusScheduleController(model, null, { poll: 30000 });
 controller.start();
-window.app = { model, view, controller };
+window.app = { model, view: null, controller };
