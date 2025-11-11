@@ -19,8 +19,19 @@ export default class BusScheduleView {
       return Object.assign({}, it, { mins });
     });
 
+    // Helper to trim seconds from time strings (e.g. 13:57:09 -> 13:57)
+    const formatTimeHM = (raw) => {
+      if (!raw) return '';
+      const isoMatch = String(raw).match(/(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}):\d{2}(?:[.Z].*)?/);
+      if (isoMatch) return isoMatch[1].slice(-5);
+      const hm = String(raw).match(/^(\d{1,2}:\d{2})/);
+      if (hm) return hm[1];
+      const m = String(raw).match(/(\d{1,2}:\d{2})/);
+      return m ? m[1] : String(raw);
+    };
+
     console.groupCollapsed('BusScheduleView - next departures', withMinutes.length);
-    withMinutes.forEach((it) => console.log(`Bus ${it.line} → ${it.dest} in ${it.mins <= 0 ? 'Nu' : it.mins + ' min'}`));
+    withMinutes.forEach((it) => console.log(`Bus ${it.line} → ${it.dest} @ ${formatTimeHM(it.time)} (${it.mins <= 0 ? 'Nu' : it.mins + ' min'})`));
     console.groupEnd();
 
     // Render simple DOM list
@@ -34,8 +45,11 @@ export default class BusScheduleView {
       <ul class="bus-departure-list">
         ${withMinutes
           .map((it) => {
-            const label = it.mins == null ? this._esc(it.time) : it.mins <= 0 ? 'Nu' : `${it.mins} min`;
-            return `<li class="bus-item"><strong class="code">${this._esc(it.line)}</strong> <span class="dest">${this._esc(it.dest)}</span> <span class="time">${this._esc(label)}</span></li>`;
+            const displayTime = formatTimeHM(it.time);
+            const minsLabel = it.mins == null ? this._esc(displayTime) : it.mins <= 0 ? 'Nu' : `${it.mins} min`;
+            return `<li class="bus-item"><strong class="code">${this._esc(it.line)}</strong> <span class="dest">${this._esc(it.dest)}</span> <span class="time">${this._esc(
+              displayTime
+            )}</span> <span class="mins">${this._esc(minsLabel)}</span></li>`;
           })
           .join('')}
       </ul>
