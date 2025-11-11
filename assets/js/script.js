@@ -31,6 +31,10 @@ columnOneByMariePierreLessard.append(busScheduleByMalte(argument1, argument2));
 
 */
 
+/* TO DO 
+create obligatory top-level elements:
+- global header (contains invisible text or has min height)
+- global footer (contains TechCollege logo) */
 
 
 
