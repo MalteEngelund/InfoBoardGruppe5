@@ -42,18 +42,23 @@ export default class BusScheduleView {
     }
 
     this.mount.innerHTML = `
-      <h3>Bustider</h3>
-      <ul class="bus-departure-list">
-        ${withMinutes
-          .map((it) => {
-            const displayTime = formatTimeHM(it.time);
-            const minsLabel = it.mins == null ? this._esc(displayTime) : it.mins <= 0 ? 'Nu' : `${it.mins} min`;
-            return `<li class="bus-item"><strong class="code">${this._esc(it.line)}</strong> <span class="dest">${this._esc(it.dest)}</span> <span class="time">${this._esc(
-              displayTime
-            )}</span> <span class="mins">${this._esc(minsLabel)}</span></li>`;
-          })
-          .join('')}
-      </ul>
+      <div class="bus-schedule">
+        <h2>Bustider</h2>
+        <ul class="bus-departure-list">
+          ${withMinutes
+            .map((it) => {
+              const displayTime = formatTimeHM(it.time);
+              const minsLabel = it.mins == null ? this._esc(displayTime) : it.mins <= 0 ? 'Nu' : `${it.mins} min`;
+              return `<li class="bus-item" style="display: flex; align-items: flex-start;">
+                <h3 class="code" style="display: inline;">${this._esc(it.line)}</h3>
+                <p class="dest" style="display: inline;">${this._esc(it.dest)}</p>
+                <p class="time" style="display: inline;">${this._esc(displayTime)}</p>
+                <p class="mins" style="display: inline;">${this._esc(minsLabel)}</p>
+              </li>`;
+            })
+            .join('')}
+        </ul>
+      </div>
     `;
   }
 
