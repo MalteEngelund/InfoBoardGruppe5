@@ -20,8 +20,9 @@ body {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: 1fr 540px;
-  gap: 18px;
+  /* begge kolonner får samme faste bredde så venstre og højre boks er lige brede */
+  grid-template-columns: 540px 540px;
+  gap: 0; /* fjern mellemrum mellem venstre og højre boks */
   max-width: 1400px;
   margin: 0 auto;
   align-items: stretch;
