@@ -1,5 +1,7 @@
-html {
-    /* TO DO font sizes in vw because the infoboard screen is huge */
-    font-size: 16px;
-}
+@use "./variables";
 
+html {
+    font-size: clamp(16px, variables.$root-em, variables.$gr-x-root-em);
+    line-height: variables.$gr-x-root-em;
+    color: variables.$color-white;
+};

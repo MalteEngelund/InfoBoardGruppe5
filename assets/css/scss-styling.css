@@ -8,12 +8,24 @@ WU = web udvikler
 TG = teknisk grafiker
 MG = mediegrafiker
 */
-/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
 /* Gennemsigtig farve */
 /* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* SIZES */
+/* TO DO after this is merged into main: 
+padding-of-absolutely-positioned-footer is about 2/3 of width of padding on each side of infoboard
+$width-of-padding-on-each-side-of-infoboard: 3.75vh; 
+Note: I deleted this variable because the lines under the headings require the parent to have no padding.
+The padding goes in dynamically created elements.
+*/
 /* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
-TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
+The following set of proportions looks quite next next to each other.
+There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
+*/
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 * {
   box-sizing: border-box;
 }
@@ -181,31 +193,138 @@ textarea {
   margin: 0;
 }
 
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 html {
-  /* TO DO font sizes in vw because the infoboard screen is huge */
-  font-size: 16px;
+  font-size: clamp(16px, 1.3vw, 2.1vw);
+  line-height: 2.1vw;
+  color: #ffffff;
 }
 
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
+h2 {
+  font-size: clamp(42px, 3.4vw, 5.5vw);
+  line-height: clamp(42px, 3.4vw, 5.5vw);
+}
+
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
+/* This is the main element */
 .top-level-grid-by-Marie-Pierre-Lessard {
+  position: relative;
   display: grid;
-  /* TO DO exact measurements? */
-  grid-template-columns: 1fr 3fr;
+  /* 1st column is between .25 and .33 of width, or between 1 and 1.3333. out of 4 
+  6 out of 20 looked almost right 
+
+  From Figma:
+          L: 1051px wide out of 3840, i.e. 0.2736979166666667 or in fractions out of 20: 5.473958333333333
+          R: 1272px wide out of 3840, i.e. 0.33125 or in fractions out of 20: 6.625
+          C: 3840-1051-1272 = 1517px, i.e. about 39.5 % or in fractions out of 20: 7.901041666666667
+
+          C+R in fractions = 6.625+7.901041666666667 = about 14.5fr
+          */
+  grid-template-columns: 5.5fr 14.5fr;
+  height: 100vh;
+  background-color: #97b7c4;
+  background-image: url("../img/right-side-background-with-dots.svg");
+  background-repeat: no-repeat;
+  /* This is to show as much of the dots to the right as in the design.
+  The left side of the image and particularly the bottom exceed the expected format of the infoboard screen. 
+  (Pic has diff. dimensions than infoboard.)  */
+  background-position: right top;
+  /* On a desktop, this makes the bottom of the image disappear, but it won't look that way on the infoboard. */
+  background-size: 100vw;
 }
 
 .top-level-column-to-left-by-Marie-Pierre-Lessard {
-  background-color: green;
+  background-color: #425462;
+  background-image: url(../img/left-side-background-with-dots.svg);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  padding-top: 7vh;
+  padding-bottom: 5vh;
+  padding-right: 2.6vw;
+  /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+      Preferably with the following to follow the design: 
+      overflow: auto;
+
+  This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+  */
 }
 
 .top-level-column-to-right-by-Marie-Pierre-Lessard {
-  background-color: red;
   display: grid;
-  /* TO DO exact measurements? */
-  grid-template-columns: repeat(2, 1fr);
+  /* From Figma:
+  C+R in fractions=6.625+7.901041666666667=about 14.5fr
+  C+R in pixels: 1272+1517 = 2789
+  */
+  grid-template-columns: 8fr 6.5fr;
+  padding-top: 7vh;
+  padding-bottom: 5vh;
+}
+
+/* This is the central zone. */
+.sub-column-to-left-by-Marie-Pierre-Lessard {
+  padding-bottom: 1.3vw;
+  padding-inline: 4vw;
+  /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+  Preferably with the following to follow the design: 
+  overflow: auto;
+
+  This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+  */
+}
+
+.sub-column-to-right-by-Marie-Pierre-Lessard {
+  padding-bottom: 1.3vw;
+  /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+     Preferably with the following to follow the design: 
+     overflow: auto;
+
+     This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+  */
 }
 
 .global-footer-by-Marie-Pierre-Lessard {
-  /* TO DO temporary */
-  background-color: black;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  /* See also z-index of dots. */
+  z-index: 1;
+  height: 5vh;
+  padding-bottom: 2.5vh;
+  justify-items: center;
+  /* Logo */
+}
+.global-footer-by-Marie-Pierre-Lessard svg {
+  height: 100%;
+}
+
+.orange-dots-by-Marie-Pierre-Lessard {
+  position: absolute;
+  bottom: 0px;
+  left: 25vw;
+  z-index: 2;
+  width: 5vw;
+}
+
+/* COLOUR TESTING */
+.test-color-transparent-fjord {
+  background-color: rgba(66, 84, 98, 0.8588235294);
+}
+
+.test-color-transparent-orange {
+  background-color: rgba(244, 105, 12, 0.8549019608);
+}
+
+.test-color-transparent-beige {
+  background-color: rgba(247, 201, 148, 0.8039215686);
 }
 
 /* TO DO
