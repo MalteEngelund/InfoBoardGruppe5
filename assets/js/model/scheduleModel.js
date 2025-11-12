@@ -9,24 +9,22 @@
     } */
 
 
-
 export const fetchSchedule = async () => {
-  const url = 'https://iws.itcn.dk/techcollege/schedules?departmentcode=smed';
+  const url = 'https://iws.itcn.dk/techcollege/schedules?departmentcode=smed'
 
   try {
-    const response = await fetch(url);
-
+    const response = await fetch(url)
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`error! Status: ${response.status}`)
     }
 
     const data = await response.json();
-    console.log('Fetched schedule data:', data);
+    return data.value
 
   } catch (error) {
     console.error('Error fetching schedule:', error)
+    return []
   }
 }
 
-fetchSchedule()
-console.error(fetchSchedule());
+
