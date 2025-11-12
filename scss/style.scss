@@ -6,6 +6,10 @@ $accent: #0066cc;
 $radius: 8px;
 $max-width: 1000px;
 
+// Tilføj variabler til billede/kasse størrelse
+$card-image-width: 500px;
+$card-image-height: 320px;
+
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -60,28 +64,32 @@ body {
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 0;
   box-shadow: 0 1px 3px rgba(2,6,23,0.04);
-  max-width: calc(100% - 420px); /* reserver plads til billedboks */
+
+  /* gør tekstboksen samme faste bredde/højde som billedet */
+  flex: 0 0 $card-image-width;
+  width: $card-image-width;
+  height: $card-image-height;
+  min-width: $card-image-width;
+  overflow: auto; /* hvis indhold er længere end kassen, vis scroll */
+
+  a { color: rgba(230,240,251,0.95); text-decoration: none; }
+  a:hover { color: #ffffff; text-decoration: underline; }
 }
-.card__content a { color: rgba(230,240,251,0.95); text-decoration: none; }
-.card__content a:hover { color: #ffffff; text-decoration: underline; }
 
-.card__title { margin: 0 0 6px 0; font-size: 1.05rem; line-height: 1.2; }
-.card__meta { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
-.card__excerpt { margin: 0; color: rgba(255,255,255,0.92); font-size: 0.95rem; }
-
-/* Billedcontainer til højre */
+/* Billedcontainer: begræns størrelse, brug billedets naturlige højde */
 .card__image {
-  flex: 0 0 420px;
-  height: 320px;
+  flex: 0 0 $card-image-width;
+  width: $card-image-width;
+  height: $card-image-height;
   overflow: hidden;
   order: 2;
   border-radius: 0;
 }
 .card__image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   border-radius: 0;
 }
 
@@ -89,5 +97,10 @@ body {
 @media (max-width: 720px) {
   .card { flex-direction: column; align-items: stretch; }
   .card__image { width: 100%; height: 180px; flex: none; order: 2; }
-  .card__content { height: auto; max-width: 100%; }
+  .card__content {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
 }
