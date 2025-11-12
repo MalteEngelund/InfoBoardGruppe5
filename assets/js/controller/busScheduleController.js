@@ -62,8 +62,16 @@ export class BusScheduleController {
     // Sort by timestamp ascending and keep the full sorted list (with ts)
     const sortedAll = itemsWithTs.sort((a, b) => a.ts - b.ts);
 
-    // Hvis et view er til stede, send den fulde sorterede liste (med ts) til view
-    if (this.view && typeof this.view.render === 'function') this.view.render(sortedAll);
+    // Filter out past departures (controller responsibility)
+    const now = Date.now();
+    const futureOnly = sortedAll.filter((it) => {
+      if (!it.ts) return true; // keep items without timestamps
+      const mins = Math.round((it.ts - now) / 60000);
+      return mins > 0; // only keep future departures
+    });
+
+    // Hvis et view er til stede, send den filtrerede liste til view
+    if (this.view && typeof this.view.render === 'function') this.view.render(futureOnly);
   }
 
   // Starter en loop som periodisk henter opdateringer fra API'et

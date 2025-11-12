@@ -36,12 +36,13 @@ export default class BusScheduleView {
 
     // Render simple DOM list
     if (!this.mount) return;
-    if (!selected.length) {
-      this.mount.innerHTML = '<div class="bus-empty">Ingen (6/17/18) afgange</div>';
+    if (!withMinutes.length) {
+      this.mount.innerHTML = '<h3>Bustider</h3><div class="bus-empty">Ingen kommende (6/17/18) afgange</div>';
       return;
     }
 
     this.mount.innerHTML = `
+      <h3>Bustider</h3>
       <ul class="bus-departure-list">
         ${withMinutes
           .map((it) => {

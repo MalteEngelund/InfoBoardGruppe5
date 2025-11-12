@@ -4,7 +4,7 @@ import BusScheduleView from './view/busScheduleView.js';
 
 const model = new BusScheduleModel();
 const view = new BusScheduleView('#busScheduleByMathias');
-// Poll interval: 300000ms = 5 minutes
-const controller = new BusScheduleController(model, view, { poll: 300000 });
+// Poll interval: 60000ms = 60 seconds
+const controller = new BusScheduleController(model, view, { poll: 60000 });
 controller.start();
 window.app = { model, view, controller };
