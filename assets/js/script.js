@@ -4,4 +4,4 @@
 
 import { startScheduleUpdates } from './controller/scheduleController.js';
 
-startScheduleUpdates(300000); // updates every 30 seconds
+startScheduleUpdates(1800000); // updates every 30 minutes
