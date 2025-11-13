@@ -1,1 +1,35 @@
+@use "./variables";
+// SIZING TESTS
+// .root-em-divided-by-golden-ratio {
+//     font-size: variables.$root-em-divided-by-golden-ratio;
+// };
+// .root-em {
+//     font-size: variables.$root-em;
+// };
+// .gr-x-root-em {
+//     font-size: variables.$gr-x-root-em;
+// };
+// .two-root-em {
+//     font-size: variables.$two-root-em;
+// };
+// .gr-x-gr-x-root-em {
+//     font-size: variables.$gr-x-gr-x-root-em;
+// };
+// .four-root-em {
+//     font-size: variables.$four-root-em;
+// };
+// .gr-x-gr-x-gr-x-root-em {
+//     font-size: variables.$gr-x-gr-x-gr-x-root-em;
+// };
+// .gr-x-gr-x-gr-x-gr-x-root-em {
+//     font-size: variables.$gr-x-gr-x-gr-x-gr-x-root-em;
+// };
+// .eight-root-em {
+//     font-size: variables.$eight-root-em;
+// };
+
+h2 {
+    font-size: clamp(42px, variables.$gr-x-gr-x-root-em, variables.$gr-x-gr-x-gr-x-root-em);
+    line-height: clamp(42px, variables.$gr-x-gr-x-root-em, variables.$gr-x-gr-x-gr-x-root-em);
+};
 

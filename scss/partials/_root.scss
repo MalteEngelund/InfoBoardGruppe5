@@ -1,0 +1,18 @@
+@use "./variables";
+
+/* Fonts in Figma design that we cannot use (not free): 
+'Century Gothic':
+- whole menu section, i.e. news feed in Figma design
+- schedule section, including dots with names of educational programs
+- it looks like it's the only font, i.e. that it is used everywhere
+*/
+/* Shortlist for a free replacement from Google Fonts:
+Didact Gothic 
+Figtree, Montserrat, Plus Jakarta Sans */
+html {
+    font-family: "Didact Gothic", Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, variables.$root-em, variables.$gr-x-root-em);
+    line-height: variables.$gr-x-root-em;
+    color: variables.$color-white;
+};
+
