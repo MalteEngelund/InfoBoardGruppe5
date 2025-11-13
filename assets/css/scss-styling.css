@@ -20,6 +20,7 @@ There is a mix of numbers from the Fibonacci sequence and numbers multiplied by 
 /* @forward transfers the partials in the list below as a single partial, 
 so that all global styling can be called from the same namespace.
 */
+/* Reset CSS */
 * {
   box-sizing: border-box;
 }
@@ -356,6 +357,17 @@ so that all global styling can be called from the same namespace.
     background-color: variables.$color-transparent-beige;
 };
 */
+/* Colours 
+WU = web udvikler
+TG = teknisk grafiker
+MG = mediegrafiker
+*/
+/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* Font sizes */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
+TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
@@ -366,3 +378,7 @@ typography (font family, size of h1, h2, h3, etc.)
 positioning and colouring of dots
 ...
 *//*# sourceMappingURL=scss-styling.css.map */
+*/
+html {
+  font-size: 16px;
+}/*# sourceMappingURL=scss-styling.css.map */
