@@ -11,13 +11,7 @@ MG = mediegrafiker
 /* Gennemsigtig farve */
 /* Gennemsigtig farve */
 /* Gennemsigtig farve */
-/* SIZES */
-/* TO DO after this is merged into main: 
-padding-of-absolutely-positioned-footer is about 2/3 of width of padding on each side of infoboard
-$width-of-padding-on-each-side-of-infoboard: 3.75vh; 
-Note: I deleted this variable because the lines under the headings require the parent to have no padding.
-The padding goes in dynamically created elements.
-*/
+/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
 /* Font sizes */
 /* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
 The following set of proportions looks quite next next to each other.
@@ -196,7 +190,17 @@ textarea {
 /* @forward transfers the partials in the list below as a single partial, 
 so that all global styling can be called from the same namespace.
 */
+/* Fonts in Figma design that we cannot use (not free): 
+'Century Gothic':
+- whole menu section, i.e. news feed in Figma design
+- schedule section, including dots with names of educational programs
+- it looks like it's the only font, i.e. that it is used everywhere
+*/
+/* Shortlist for a free replacement from Google Fonts:
+Didact Gothic 
+Figtree, Montserrat, Plus Jakarta Sans */
 html {
+  font-family: "Didact Gothic", Arial, Helvetica, sans-serif;
   font-size: clamp(16px, 1.3vw, 2.1vw);
   line-height: 2.1vw;
   color: #ffffff;
@@ -248,7 +252,7 @@ so that all global styling can be called from the same namespace.
   background-size: cover;
   padding-top: 7vh;
   padding-bottom: 5vh;
-  padding-right: 2.6vw;
+  padding-right: 3.4vw;
   /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
       Preferably with the following to follow the design: 
       overflow: auto;
@@ -309,24 +313,49 @@ so that all global styling can be called from the same namespace.
 .orange-dots-by-Marie-Pierre-Lessard {
   position: absolute;
   bottom: 0px;
-  left: 25vw;
+  left: 24.2vw;
   z-index: 2;
-  width: 5vw;
+  width: 6.5vw;
 }
 
-/* COLOUR TESTING */
+.hidden-by-Marie-Pierre-Lessard {
+  display: none;
+}
+
+/* Maybe TO DO Marie-Pierre may want to use the following for bottom of left zone if Heinz gets API from IT Center Nord */
+.static-section-grid-by-Marie-Pierre-Lessard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0.1618vw;
+  background-color: #ffffff;
+}
+.static-section-grid-by-Marie-Pierre-Lessard h2 {
+  background-color: #425462;
+}
+.static-section-grid-by-Marie-Pierre-Lessard div {
+  background-color: #425462;
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+}
+
+/* COLOUR AND SIZE TESTING 
+.test-grid {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2px;
+    background-color: white;
+};
 .test-color-transparent-fjord {
-  background-color: rgba(66, 84, 98, 0.8588235294);
-}
-
+    background-color: variables.$color-transparent-fjord;
+};
 .test-color-transparent-orange {
-  background-color: rgba(244, 105, 12, 0.8549019608);
-}
-
+    background-color: variables.$color-transparent-orange;
+};
 .test-color-transparent-beige {
-  background-color: rgba(247, 201, 148, 0.8039215686);
-}
-
+    background-color: variables.$color-transparent-beige;
+};
+*/
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns

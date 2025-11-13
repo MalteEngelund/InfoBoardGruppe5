@@ -98,24 +98,54 @@
     /* Logo */
     svg {
         height: 100%;
-    }
+    };
 };
 
 .orange-dots-by-Marie-Pierre-Lessard {
     position: absolute;
     bottom: 0px;
-    left: 25vw;
+    left: 24.2vw;
     z-index: 2;
     width: variables.$width-of-orange-dots;
 };
 
-/* COLOUR TESTING */
+.hidden-by-Marie-Pierre-Lessard {
+    display: none;
+};
+
+/* Maybe TO DO Marie-Pierre may want to use the following for bottom of left zone if Heinz gets API from IT Center Nord */
+.static-section-grid-by-Marie-Pierre-Lessard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: variables.$white-gap-under-headings;
+    background-color: variables.$color-white;
+
+    h2 {
+        background-color: variables.$color-fjord;
+    };
+
+    div {
+        background-color: variables.$color-fjord;
+        display: grid;
+        grid-template-columns: 2fr 6fr;
+    };
+};
+
+/* COLOUR AND SIZE TESTING 
+.test-grid {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2px;
+    background-color: white;
+};
 .test-color-transparent-fjord {
     background-color: variables.$color-transparent-fjord;
-}
+};
 .test-color-transparent-orange {
     background-color: variables.$color-transparent-orange;
-}
+};
 .test-color-transparent-beige {
     background-color: variables.$color-transparent-beige;
-}
+};
+*/
