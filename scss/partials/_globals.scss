@@ -1,7 +1,0 @@
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
-@forward "./variables";
-@forward "./mixins";
-@forward "./typography";
-@forward "./misc-global-styling";
