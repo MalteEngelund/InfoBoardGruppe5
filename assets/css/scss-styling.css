@@ -1,25 +1,6 @@
+@charset "UTF-8";
 /* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
 Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
-The following set of proportions looks quite next next to each other.
-There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
-*/
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
 /* Reset CSS */
 * {
   box-sizing: border-box;
@@ -191,6 +172,28 @@ textarea {
 /* @forward transfers the partials in the list below as a single partial, 
 so that all global styling can be called from the same namespace.
 */
+/* Colours 
+WU = web udvikler
+TG = teknisk grafiker
+MG = mediegrafiker
+*/
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
+/* Font sizes */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
+The following set of proportions looks quite next next to each other.
+There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
+*/
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
+/* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
+Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 /* Fonts in Figma design that we cannot use (not free): 
 'Century Gothic':
 - whole menu section, i.e. news feed in Figma design
@@ -357,17 +360,6 @@ so that all global styling can be called from the same namespace.
     background-color: variables.$color-transparent-beige;
 };
 */
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
-TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
@@ -377,8 +369,116 @@ visible gaps or borders that form a line under headings and time (are additional
 typography (font family, size of h1, h2, h3, etc.)
 positioning and colouring of dots
 ...
-*//*# sourceMappingURL=scss-styling.css.map */
 */
 html {
   font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #eef2f6;
+  color: #111827;
+}
+
+.infoboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Klokken større */
+#clock {
+  /* halveret størrelse (varierer responsivt) */
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  /* fjern kassen/indramning */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0.8rem;
+}
+
+hr {
+  width: min(90%, 1100px);
+  margin: 0.6rem auto;
+  border: none;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Meta-row layout */
+.meta-row {
+  width: min(90%, 1100px);
+  display: flex;
+  justify-content: flex-start; /* dato til venstre */
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* Dato + temperatur + ikon i samme række */
+#date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.25rem;
+  opacity: 0.95;
+  text-align: left;
+  /* Sørg for at dato + temp + ikon forbliver på samme linje */
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+#date .date-text {
+  font-weight: 500;
+}
+
+#date .temp {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Ikonet: hold det på linjen, centreret vertikalt og rykket mere til højre */
+#date #weather-icon {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 24px; /* øget afstand fra temperatur */
+  transform: translateX(24px); /* flyt mere mod højre */
+}
+
+/* Mobile: mildere forskydning så layout ikke bryder */
+@media (max-width: 520px) {
+  .meta-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  #date, #date .temp {
+    font-size: 1rem;
+  }
+  #date {
+    white-space: normal; /* tillad brud på små skærme */
+  }
+  #date #weather-icon {
+    width: 48px;
+    height: 48px;
+    transform: translateX(6px);
+    margin-left: 8px;
+  }
 }/*# sourceMappingURL=scss-styling.css.map */
