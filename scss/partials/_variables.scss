@@ -3,13 +3,14 @@ WU = web udvikler
 TG = teknisk grafiker
 MG = mediegrafiker
 */
-/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
 $color-fjord: #425462; //Figma: Lucia Corona, Visual Designer (baggrunden til den venstre kolonne)
+/* Gennemsigtig farve */
+$color-transparent-fjord: #425462db; //Figma gives the non-transparent colour #425462 with a blur of 25%
 $color-nepal: #97b7c4; //Figma: Lucia Corona, Visual Designer (MEN: lysgrå prikker til højre: #758f9d; til venstre: #86a1ab; farverne er ikke gennemsigtige)
 $color-wu-safety-orange: #f4690c; //Figma: Lucia Corona, Visual Designer (farve fundet med ColorZilla; matcher mørk farven til WU i designet)
 // $color-lighter-than-safety-orange: #f0732a; //Figma: Peterson Design House, Color Inspiration #007 
 /* Gennemsigtig farve */
-$color-transparent-orange: #f4690cda; // Maybe:#ea6207cd ColorZilla farver er afviste: mørkorange prikker til højre har mange indre farver, nok fordi farven er gennemsigtig: f.eks. bl.a.: #ad612e eller #b26128 (begge er brune, ikke orange)
+$color-transparent-orange: #f4690cda; // ColorZilla farver er afviste: mørkorange prikker til højre har mange indre farver, nok fordi farven er gennemsigtig: f.eks. bl.a.: #ad612e eller #b26128 (begge er brune, ikke orange)
 $color-wu-manhattan: #f7c894; //Figma: Lucia Corona, Visual Designer (matcher lys farve til WU)
 // $color-more-pink-than-manhattan: #ffc693; //Figma: Peterson Design House, Color Inspiration #007 (manhattan is more beige)
 /* Gennemsigtig farve */
@@ -21,6 +22,26 @@ $color-mg-light-green: #97bdac; //Figma: Peterson Design House, Color Inspiratio
 $color-very-light-green: #d5e2d8; //Figma: Peterson Design House, Color Inspiration #007 
 $color-white: #ffffff; //Tekstfarve
 
+/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
+$height-of-negative-space-at-the-very-top: 7vh; //Footer is at least 2/3 of this.
+$height-of-absolutely-positioned-footer-and-corresponding-padding: 5vh; 
+$padding-of-absolutely-positioned-footer: 2.5vh; 
+$width-of-orange-dots: 6.5vw; //I used to have 15vh in height, but the padding of 1st column has to be at least as wide as half the width of set of orange dots so that text, lines, etc. never touch orange dots. In Figma, the set looks like 6x height of logo, which is $height-of-absolutely-positioned-footer-and-corresponding-padding - $padding-of-absolutely-positioned-footer. However, because I used a background with built-in dots, it looks off in comparison to the beige dots, etc. Quickest solution: give orange dots a size based on other dots. Proportion compared to logo will be lost, but this will look best.
+$a-tad-more-than-half-the-width-of-orange-dots: 3.4vw; //Just a bit more to make sure text never touches orange dots 
+$padding-of-central-zone: 4vw; //This padding keeps dynamic elements a good distance from orange dots.
+$white-gap-under-headings: 0.1618vw; //Given a rem of 1.3vw or about 16px on Marie-Pierres laptop: about 1/8 of 1 rem (golden ratio appears to have been used by designer) 
+
 /* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
-TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
+The following set of proportions looks quite next next to each other.
+There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
+*/
+$root-em-divided-by-golden-ratio: 0.8vw; //A bit more than .5rem
+$root-em: 1.3vw; //1.3vw is about 16px on Marie-Pierre Lessards desktop and it looks about right compared to design; acc. to Figma, 1rem is 28px in design (exact vw?); since the infoboard is large, a slightly bigger rem unit would be user-friendly.
+$gr-x-root-em: 2.1vw; //Max. font size
+$two-root-em: 2.6vw; 
+$gr-x-gr-x-root-em: 3.4vw; //Approx. the h2, at least on Marie-Pierres desktop screen.
+$four-root-em: 5.2vw; //Given a rem of 1.3vw, four-root-em and gr-x-gr-x-gr-x-root-em look about the same
+$gr-x-gr-x-gr-x-root-em: 5.5vw; //Max. font size
+$gr-x-gr-x-gr-x-gr-x-root-em: 8.9vw; 
+$eight-root-em: 10.4vw;

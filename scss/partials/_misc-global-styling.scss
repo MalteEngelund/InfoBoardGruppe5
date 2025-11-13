@@ -1,0 +1,151 @@
+@use "./variables";
+@use "./mixins";
+
+/* This is the main element */
+.top-level-grid-by-Marie-Pierre-Lessard {
+    position: relative;
+
+    display: grid;
+    /* 1st column is between .25 and .33 of width, or between 1 and 1.3333. out of 4 
+    6 out of 20 looked almost right 
+    
+    From Figma:
+            L: 1051px wide out of 3840, i.e. 0.2736979166666667 or in fractions out of 20: 5.473958333333333
+            R: 1272px wide out of 3840, i.e. 0.33125 or in fractions out of 20: 6.625
+            C: 3840-1051-1272 = 1517px, i.e. about 39.5 % or in fractions out of 20: 7.901041666666667
+
+            C+R in fractions = 6.625+7.901041666666667 = about 14.5fr
+            */
+    grid-template-columns: 5.5fr 14.5fr;
+
+    height: 100vh;
+
+    background-color: variables.$color-nepal; //Fallback
+    background-image: url("../img/right-side-background-with-dots.svg");
+    background-repeat: no-repeat;
+    /* This is to show as much of the dots to the right as in the design.
+    The left side of the image and particularly the bottom exceed the expected format of the infoboard screen. 
+    (Pic has diff. dimensions than infoboard.)  */
+    background-position: right top;
+    /* On a desktop, this makes the bottom of the image disappear, but it won't look that way on the infoboard. */
+    background-size: 100vw;
+};
+
+.top-level-column-to-left-by-Marie-Pierre-Lessard {
+    background-color: variables.$color-fjord; //Fallback
+    background-image: url(../img/left-side-background-with-dots.svg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+
+    @include mixins.global-padding-block;
+    padding-right: variables.$a-tad-more-than-half-the-width-of-orange-dots;
+
+    /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+        Preferably with the following to follow the design: 
+        overflow: auto;
+    
+    This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+    */
+};
+
+.top-level-column-to-right-by-Marie-Pierre-Lessard {
+    display: grid;
+    /* From Figma:
+    C+R in fractions=6.625+7.901041666666667=about 14.5fr
+    C+R in pixels: 1272+1517 = 2789
+    */
+    grid-template-columns: 8fr 6.5fr;
+    @include mixins.global-padding-block;
+};
+
+/* This is the central zone. */
+.sub-column-to-left-by-Marie-Pierre-Lessard {
+    padding-bottom: variables.$root-em;
+    padding-inline: variables.$padding-of-central-zone;
+
+    /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+    Preferably with the following to follow the design: 
+    overflow: auto;
+
+    This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+    */
+};
+
+.sub-column-to-right-by-Marie-Pierre-Lessard {
+    padding-bottom: variables.$root-em;
+
+    /* The non-repeated background isn't long enough to allow for any length of content, so the overflow has to be hidden. 
+       Preferably with the following to follow the design: 
+       overflow: auto;
+    
+       This property is NOT inherited, so it needs to be applied to the right dynamic element in each zone.
+    */
+};
+
+.global-footer-by-Marie-Pierre-Lessard {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /* See also z-index of dots. */
+    z-index: 1;
+
+    height: variables.$height-of-absolutely-positioned-footer-and-corresponding-padding;
+    padding-bottom: variables.$padding-of-absolutely-positioned-footer;
+    justify-items: center;
+
+    /* Logo */
+    svg {
+        height: 100%;
+    };
+};
+
+.orange-dots-by-Marie-Pierre-Lessard {
+    position: absolute;
+    bottom: 0px;
+    left: 24.2vw;
+    z-index: 2;
+    width: variables.$width-of-orange-dots;
+};
+
+.hidden-by-Marie-Pierre-Lessard {
+    display: none;
+};
+
+/* Maybe TO DO Marie-Pierre may want to use the following for bottom of left zone if Heinz gets API from IT Center Nord */
+.static-section-grid-by-Marie-Pierre-Lessard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: variables.$white-gap-under-headings;
+    background-color: variables.$color-white;
+
+    h2 {
+        background-color: variables.$color-fjord;
+    };
+
+    div {
+        background-color: variables.$color-fjord;
+        display: grid;
+        grid-template-columns: 2fr 6fr;
+    };
+};
+
+/* COLOUR AND SIZE TESTING 
+.test-grid {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2px;
+    background-color: white;
+};
+.test-color-transparent-fjord {
+    background-color: variables.$color-transparent-fjord;
+};
+.test-color-transparent-orange {
+    background-color: variables.$color-transparent-orange;
+};
+.test-color-transparent-beige {
+    background-color: variables.$color-transparent-beige;
+};
+*/

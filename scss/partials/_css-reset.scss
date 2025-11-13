@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+/* Source for the following:
+https: //meyerweb.com/eric/tools/css/reset 
+License: none (public domain)
+
+Eric Meyer's version does not include the box-sizing property (above).
+*/
 /* Remove default spacing */
 html,
 body,
@@ -120,10 +126,12 @@ ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -156,4 +164,5 @@ textarea {
   border: none;
   padding: 0;
   margin: 0;
+}
 }

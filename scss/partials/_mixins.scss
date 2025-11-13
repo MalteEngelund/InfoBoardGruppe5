@@ -1,1 +1,6 @@
+@use "./variables";
 
+@mixin global-padding-block {
+    padding-top: variables.$height-of-negative-space-at-the-very-top;
+    padding-bottom: variables.$height-of-absolutely-positioned-footer-and-corresponding-padding;
+};
