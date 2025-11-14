@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
 }
 
 .schedule-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f5c793;
   border-radius: 30px;
   padding: 0 10px 0 0;
   font-family: "Inter", sans-serif;
@@ -60,4 +60,34 @@
   text-align: right;
   font-weight: 500;
   padding-right: 5px;
+}
+
+.education-circles {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: right;
+}
+.education-circles span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 4vw;
+  height: 4vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  padding: 0;
+}
+.education-circles span:nth-of-type(1) {
+  background-color: #f4690c;
+}
+.education-circles span:nth-of-type(2) {
+  background-color: #97BEAC;
+}
+.education-circles span:nth-of-type(3) {
+  background-color: #F5C961;
 }

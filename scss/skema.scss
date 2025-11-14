@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
 }
 
 .schedule-item {
@@ -12,7 +13,7 @@
   
   align-items: center;
   justify-content: space-between;
-  background: #f5c793; // light peach background
+  // background: #f5c793;
   border-radius: 30px;
   padding: 0 10px 0 0;
   font-family: 'Inter', sans-serif;
@@ -68,5 +69,37 @@
       font-weight: 500;
       padding-right: 5px;
     }
+  }
+}
+.education-circles {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: right;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 4vw; // 129px i designet
+    height: 4vw;
+    aspect-ratio: 1 / 1; 
+    border-radius: 50%;  
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    padding: 0;
+
+    &:nth-of-type(1){
+      background-color: #f4690c;
+    }
+    &:nth-of-type(2){
+      background-color: #97BEAC;
+    }
+    &:nth-of-type(3){
+      background-color: #F5C961;
+    }
+
   }
 }

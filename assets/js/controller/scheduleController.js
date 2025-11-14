@@ -93,7 +93,7 @@ import { renderSchedule } from '../view/scheduleView.js';
 const educationColors = {
   "Mediegrafiker": "#97BEAC99",      // green
   "Grafisk teknik.": "#F5C96199",    // yellow
-  "Webudvikler": "#F7C89499"         // orange
+  "Webudvikler": "#f4690c99"         // orange
 };
 
 export const showSchedule = async () => {
