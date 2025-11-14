@@ -1,8 +1,9 @@
 @use "./globals";
 // Bus line color variables
-$bus-nepal: #7c82d6;
+$bus-nepal: #1a26d4;
 $bus-nepal-light: #b5b5ff;
-// Bus schedule specific styling
+$color-transparent-beige: #f7c994cd;
+
 .bus-schedule {
   background-color: globals.$color-fjord; // Dark blue-grey background (#425462)
   padding: 2rem;
@@ -60,12 +61,12 @@ $bus-nepal-light: #b5b5ff;
   }
 
   &[data-line="17"] {
-    background-color: $bus-orange-light;
+    background-color: $color-transparent-beige;
     color: globals.$color-white;
   }
 
   &[data-line="18"] {
-    background-color: $bus-green-light;
+    background-color: globals.$color-mg-light-green;
     color: globals.$color-white;
   }
 
@@ -88,8 +89,8 @@ $bus-nepal-light: #b5b5ff;
 
   // Bus line specific colors for h3 circle borders
   &[data-line="6"] .code {
-    border-color: globals.$color-nepal;
-    background-color: #97b7d9; // nepal with transparency
+    border-color: $bus-nepal;
+    background-color: $bus-nepal; // nepal with transparency
   }
 
   &[data-line="17"] .code {
@@ -99,7 +100,7 @@ $bus-nepal-light: #b5b5ff;
 
   &[data-line="18"] .code {
     border-color: globals.$color-mg-dark-green;
-    background-color: #146e57; // dark green with transparency
+    background-color: globals.$color-mg-dark-green; // dark green with transparency
   }
 
   .dest {

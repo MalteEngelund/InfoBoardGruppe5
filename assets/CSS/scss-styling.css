@@ -220,15 +220,15 @@ TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
   align-items: center;
 }
 .bus-item[data-line="6"] {
-  background-color: #b5cdd4;
+  background-color: #b5b5ff;
   color: #ffffff;
 }
 .bus-item[data-line="17"] {
-  background-color: #f78730;
+  background-color: rgba(247, 201, 148, 0.8039215686);
   color: #ffffff;
 }
 .bus-item[data-line="18"] {
-  background-color: #4a9970;
+  background-color: #97bdac;
   color: #ffffff;
 }
 .bus-item .code {
@@ -247,8 +247,8 @@ TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
   border: 0px solid rgba(255, 255, 255, 0.5);
 }
 .bus-item[data-line="6"] .code {
-  border-color: #97b7c4;
-  background-color: #97b7d9;
+  border-color: #1a26d4;
+  background-color: #1a26d4;
 }
 .bus-item[data-line="17"] .code {
   border-color: #f4690c;
