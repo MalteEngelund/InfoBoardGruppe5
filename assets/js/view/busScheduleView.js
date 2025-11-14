@@ -49,11 +49,11 @@ export default class BusScheduleView {
             .map((it) => {
               const displayTime = formatTimeHM(it.time);
               const minsLabel = it.mins == null ? this._esc(displayTime) : it.mins <= 0 ? 'Nu' : `${it.mins} min`;
-              return `<li class="bus-item" style="display: flex; align-items: flex-start;">
-                <h3 class="code" style="display: inline;">${this._esc(it.line)}</h3>
-                <p class="dest" style="display: inline;">${this._esc(it.dest)}</p>
-                <p class="time" style="display: inline;">${this._esc(displayTime)}</p>
-                <p class="mins" style="display: inline;">${this._esc(minsLabel)}</p>
+              return `<li class="bus-item" data-line="${this._esc(it.line)}" style="display: flex; align-items: center;">
+                <h3 class="code"">${this._esc(it.line)}</h3>
+                <p class="dest"">${this._esc(it.dest)}</p>
+                <p class="time" >${this._esc(displayTime)}</p>
+                <p class="mins" >${this._esc(minsLabel)}</p>
               </li>`;
             })
             .join('')}
