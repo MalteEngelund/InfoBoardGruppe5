@@ -1,25 +1,5 @@
 /* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
 Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
-The following set of proportions looks quite next next to each other.
-There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
-*/
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
 /* Reset CSS */
 * {
   box-sizing: border-box;
@@ -191,6 +171,28 @@ textarea {
 /* @forward transfers the partials in the list below as a single partial, 
 so that all global styling can be called from the same namespace.
 */
+/* Colours 
+WU = web udvikler
+TG = teknisk grafiker
+MG = mediegrafiker
+*/
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
+/* Font sizes */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
+The following set of proportions looks quite next next to each other.
+There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
+*/
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
+/* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
+Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 /* Fonts in Figma design that we cannot use (not free): 
 'Century Gothic':
 - whole menu section, i.e. news feed in Figma design
@@ -357,17 +359,101 @@ so that all global styling can be called from the same namespace.
     background-color: variables.$color-transparent-beige;
 };
 */
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
-TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
+#activitiesByMalte {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding: 0 10px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 4rem;
+  color: #fff;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 350px;
+  height: 40px;
+  width: 100%;
+}
+.schedule-item h3 {
+  color: #fff;
+  border-radius: 22px 0 0 22px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+  flex-shrink: 0;
+  padding: 0 25px;
+}
+.schedule-item p {
+  margin: 0;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.schedule-item p:nth-of-type(1) {
+  flex: 1;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.schedule-item p:nth-of-type(2) {
+  flex: 2;
+  text-align: center;
+  opacity: 0.9;
+  padding-left: 10px;
+}
+.schedule-item p:nth-of-type(3) {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+  padding-right: 10px;
+}
+.schedule-item p:nth-of-type(4) {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+  padding-right: 5px;
+}
+
+.education-circles {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: right;
+}
+.education-circles span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 4vw;
+  height: 4vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  padding: 0;
+}
+.education-circles span:nth-of-type(1) {
+  background-color: #f4690c;
+}
+.education-circles span:nth-of-type(2) {
+  background-color: #97BEAC;
+}
+.education-circles span:nth-of-type(3) {
+  background-color: #F5C961;
+}
+
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
@@ -377,8 +463,7 @@ visible gaps or borders that form a line under headings and time (are additional
 typography (font family, size of h1, h2, h3, etc.)
 positioning and colouring of dots
 ...
-*//*# sourceMappingURL=scss-styling.css.map */
 */
 html {
   font-size: 16px;
-}/*# sourceMappingURL=scss-styling.css.map */
+}
