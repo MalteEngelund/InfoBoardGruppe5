@@ -1,14 +1,19 @@
 @charset "UTF-8";
+/* Variabler: base størrelser og farver til layout og komponenter */
 :root {
+  /* typografi og skalering */
   --base-font-size: 18px;
+  /* venstre kolonne: antal rækker og højde pr. række */
   --left-rows: 5;
   --row-height: 78px;
+  /* farvetema for bokse */
   --box-bg: #425462;
   --box-text: #ffffff;
   --box-muted: #d7dde6;
   --box-accent: rgba(255,255,255,0.08);
 }
 
+/* Global base: font, baggrund og baseline-typografi */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f7fa;
@@ -19,21 +24,23 @@ body {
   line-height: 1.55;
 }
 
+/* Layout: hovedgrid og kolonneopsætning */
 .menu-grid {
   display: grid;
-  /* begge kolonner får samme faste bredde så venstre og højre boks er lige brede */
   grid-template-columns: 540px 540px;
-  gap: 0; /* fjern mellemrum mellem venstre og højre boks */
+  gap: 0;
   max-width: 1400px;
   margin: 0 auto;
   align-items: stretch;
 }
 
+/* Venstre kolonne: stak af elementer */
 .left-col {
   display: flex;
   flex-direction: column;
 }
 
+/* Dage-liste: scrollbar og højdebegrænsning */
 .days-list {
   display: flex;
   flex-direction: column;
@@ -44,6 +51,7 @@ body {
   padding-right: 6px;
 }
 
+/* Hurtig-kort for dag (kompakt) */
 .day-card {
   display: flex;
   justify-content: space-between;
@@ -74,7 +82,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* hver dag i venstre kolonne (fuld liste) */
+/* Fuldt liste-element for dag med detaljer */
 .day-list-item {
   padding: 12px 14px;
   border-radius: 6px;
@@ -102,6 +110,26 @@ body {
   line-height: 1.3;
 }
 
+/* Styling til mørkere baggrund: tekstfarver og baggrund */
+.day-list-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--box-text);
+}
+.day-list-item ul li,
+.day-list-item p,
+.day-list-item .day-date {
+  color: #e6eef6;
+}
+
+/* Markeret dag i listen */
+.day-list-item.selected {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--box-text);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Højre kolonne: detaljer og fremvisning af valgt dag */
 .right-col {
   display: flex;
   flex-direction: column;
@@ -109,9 +137,10 @@ body {
   padding: 24px;
   background: var(--box-bg);
   color: var(--box-text);
-  border-radius: 0; /* uden afrundede hjørner */
+  border-radius: 0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   min-height: 0;
+  /* Indholdet der viser dagens detaljer centreres */
 }
 .right-col h2 {
   margin-top: 0;
@@ -148,41 +177,7 @@ body {
   text-align: center;
 }
 
-/* scrollbar styles */
-.days-list::-webkit-scrollbar {
-  width: 10px;
-}
-.days-list::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 6px;
-}
-.days-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* responsive */
-@media (max-width: 880px) {
-  :root {
-    --base-font-size: 16px;
-  }
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-  .right-col {
-    order: 2;
-    margin-top: 12px;
-    padding: 16px;
-    min-height: auto;
-    align-self: auto;
-  }
-  .right-col h2 {
-    font-size: 1.15rem;
-  }
-  .today-details h3 {
-    font-size: 1.05rem;
-  }
-}
-/* Generel boksbaggrund - anvendes hvor vi har .canteen-box, .left-col, .right-col */
+/* Fælles bokse: baggrund og skygge for kantine-komponenter */
 .canteen-box,
 .left-col,
 .right-col {
@@ -191,7 +186,7 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* Store overskrifter i bokse skal være hvide */
+/* Overskrifter skal være tydelige på mørk baggrund */
 .canteen-box h2,
 .left-header h2,
 .right-col h2,
@@ -200,7 +195,7 @@ body {
   color: var(--box-text);
 }
 
-/* week-badge styling tilpasset mørk baggrund */
+/* Header-sektion i venstre kolonne med ugebadge */
 .left-header {
   display: flex;
   align-items: center;
@@ -212,6 +207,7 @@ body {
   line-height: 1;
 }
 
+/* Uge-badge styling */
 .week-badge {
   background: rgba(255, 255, 255, 0.08);
   color: var(--box-text);
@@ -222,30 +218,51 @@ body {
   font-size: 0.95rem;
 }
 
-/* Dags-elementer: let transparent baggrund så de står frem på mørk baggrund */
-.day-list-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--box-text);
+/* Scrollbar: standard styling for days-list (WebKit) */
+.days-list::-webkit-scrollbar {
+  width: 10px;
 }
-.day-list-item ul li,
-.day-list-item p,
-.day-list-item .day-date {
-  color: #e6eef6;
+.days-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
 }
-
-/* valgt dag styling */
-.day-list-item.selected {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--box-text);
-  border-color: rgba(255, 255, 255, 0.14);
+.days-list::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* scrollbar styling til mørk baggrund */
+/* Scrollbar variant til mørk baggrund */
 .days-list::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12);
 }
 
 .days-list::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive: mindre skærme */
+@media (max-width: 880px) {
+  /* lidt mindre base-font-size for bedre pasform */
+  :root {
+    --base-font-size: 16px;
+  }
+  /* enkel kolonne i stedet for to kolonner */
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  /* placer højre kolonne efter indhold og giv lidt luft */
+  .right-col {
+    order: 2;
+    margin-top: 12px;
+    padding: 16px;
+    min-height: auto;
+    align-self: auto;
+  }
+  /* mindre overskrift i højre kolonne på små skærme */
+  .right-col h2 {
+    font-size: 1.15rem;
+  }
+  /* lidt mindre underoverskrift for bedre layout */
+  .today-details h3 {
+    font-size: 1.05rem;
+  }
 }/*# sourceMappingURL=style.css.map */
