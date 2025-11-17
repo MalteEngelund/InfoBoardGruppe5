@@ -2,6 +2,7 @@
 Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
 @use "./partials/css-reset";
 @use "./partials/globals";
+@use "./partials/_busschedule"; // <-- tilføjet
 
 @use "./partials/variables-kantine";
 @use "./partials/_base-kantine";
@@ -11,6 +12,11 @@ Variables include colours, negative space (i.e. global margins, etc.), and perha
 @use "./partials/_right-col-kantine";
 @use "./partials/_scrollbar-kantine";
 @use "./partials/_responsive-kantine";
+
+@use "./partials/variables-ur-vejr";
+@use "./partials/_base-ur-vejr";
+@use "./partials/_meta-ur-vejr";
+@use "./partials/_clock-ur-vejr";
 
 
 

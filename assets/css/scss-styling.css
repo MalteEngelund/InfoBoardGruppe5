@@ -360,6 +360,110 @@ so that all global styling can be called from the same namespace.
     background-color: variables.$color-transparent-beige;
 };
 */
+.bus-schedule {
+  background-color: #425462;
+  padding: 2rem;
+  align-items: center;
+  max-width: 400px;
+}
+.bus-schedule h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.bus-schedule h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 1rem 0 2rem 0;
+}
+
+.bus-departure-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bus-item {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+}
+.bus-item h3,
+.bus-item p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.bus-item[data-line="6"] {
+  background-color: #b5b5ff;
+  color: #ffffff;
+}
+.bus-item[data-line="17"] {
+  background-color: rgba(247, 201, 148, 0.8039215686);
+  color: #ffffff;
+}
+.bus-item[data-line="18"] {
+  background-color: #97bdac;
+  color: #ffffff;
+}
+.bus-item .code {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  text-align: center;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+}
+.bus-item[data-line="6"] .code {
+  border-color: #1a26d4;
+  background-color: #1a26d4;
+}
+.bus-item[data-line="17"] .code {
+  border-color: #f4690c;
+  background-color: #f4690c;
+}
+.bus-item[data-line="18"] .code {
+  border-color: #146e57;
+  background-color: #146e57;
+}
+.bus-item .dest {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+.bus-item .time {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0;
+  margin-left: auto;
+}
+.bus-item .mins {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0;
+  margin-left: 1rem;
+  text-align: center;
+  padding-right: 1.5rem;
+}
+
 /* Variabler: base størrelser og farver til layout og komponenter */
 :root {
   /* typografi og skalering */
@@ -377,10 +481,11 @@ so that all global styling can be called from the same namespace.
 /* base: font, baggrund og baseline-typografi */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fa;
+  /* Fjernet global lys baggrund og ydre padding så der ikke opstår en synlig kant */
+  background: transparent;
   color: #222;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   font-size: var(--base-font-size);
   line-height: 1.55;
 }
@@ -627,6 +732,117 @@ body {
     font-size: 1.05rem;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Fjern global baggrund, så den lyse ramme ikke vises */
+  background: transparent;
+  color: #111827;
+}
+
+.infoboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: auto;
+  /* Fjern ydre padding så der ikke opstår en synlig kant */
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+hr {
+  width: min(90%, 1100px);
+  margin: 0.6rem auto;
+  border: none;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Meta-row layout */
+.meta-row {
+  width: min(90%, 1100px);
+  display: flex;
+  justify-content: flex-start; /* dato til venstre */
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* Dato + temperatur + ikon i samme række */
+#date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.25rem;
+  opacity: 0.95;
+  text-align: left;
+  /* Sørg for at dato + temp + ikon forbliver på samme linje */
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+#date .date-text {
+  font-weight: 500;
+}
+
+#date .temp {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Ikonet: hold det på linjen, centreret vertikalt og rykket mere til højre */
+#date #weather-icon {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 24px; /* øget afstand fra temperatur */
+  transform: translateX(24px); /* flyt mere mod højre */
+}
+
+/* Mobile: mildere forskydning så layout ikke bryder */
+@media (max-width: 520px) {
+  .meta-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  #date, #date .temp {
+    font-size: 1rem;
+  }
+  #date {
+    white-space: normal; /* tillad brud på små skærme */
+  }
+  #date #weather-icon {
+    width: 48px;
+    height: 48px;
+    transform: translateX(6px);
+    margin-left: 8px;
+  }
+}
+#clock {
+  /* halveret størrelse (varierer responsivt) */
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  /* fjern kassen/indramning */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0.8rem;
+}
+
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns

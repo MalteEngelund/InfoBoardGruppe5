@@ -1,0 +1,25 @@
+@import 'variables-ur-vejr';
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Fjern global baggrund, så den lyse ramme ikke vises */
+  background: transparent;
+  color: $text;
+}
+
+.infoboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: auto;
+  /* Fjern ydre padding så der ikke opstår en synlig kant */
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
