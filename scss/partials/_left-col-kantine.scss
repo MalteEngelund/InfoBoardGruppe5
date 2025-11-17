@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: calc(var(--left-rows) * var(--row-height));
-  max-height: calc(var(--left-rows) * var(--row-height));
-  overflow-y: auto;
+  /* Vis alle dage samtidigt: fjern faste højdebegrænsninger og scrollbar */
+  min-height: auto;
+  max-height: none;
+  overflow-y: visible;
   padding-right: 6px;
 }
 
