@@ -1,0 +1,31 @@
+@use "./variables-nyheder" as *;
+
+.nyheder-feed {
+  @media (max-width: 720px) {
+    .card { flex-direction: column; align-items: stretch; }
+    .card__image {
+      width: 100%;
+      height: 180px;
+      flex: none;
+      order: 2;
+    }
+    .card__content {
+      height: auto;
+      width: 100%;
+      max-width: 100%;
+      flex: none;
+      min-width: 0;
+    }
+  }
+
+  /* Ekstra sikring for mellemstore skærme: tillad billedet at være mindre procentmæssigt */
+  @media (max-width: 1000px) and (min-width: 721px) {
+    .card__image {
+      flex: 0 0 min(40%, $card-image-width);
+      width: min(40%, $card-image-width);
+      max-width: $card-image-width;
+      height: auto;
+    }
+    .card__content { min-width: 0; }
+  }
+}

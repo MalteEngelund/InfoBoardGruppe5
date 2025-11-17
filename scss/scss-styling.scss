@@ -3,6 +3,13 @@ Variables include colours, negative space (i.e. global margins, etc.), and perha
 @use "./partials/css-reset";
 @use "./partials/globals";
 
+/* nyt: brug nyheder-partials fra partials */
+@use "./partials/variables-nyheder" as *;
+@use "./partials/base-nyheder";
+@use "./partials/app-nyheder";
+@use "./partials/card-nyheder";
+@use "./partials/responsive-nyheder";
+
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
