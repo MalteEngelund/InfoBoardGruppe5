@@ -3,6 +3,17 @@ Variables include colours, negative space (i.e. global margins, etc.), and perha
 @use "./partials/css-reset";
 @use "./partials/globals";
 
+@use "./partials/variables-kantine";
+@use "./partials/_base-kantine";
+@use "./partials/_components-kantine";
+@use "./partials/_layout-kantine";
+@use "./partials/_left-col-kantine";
+@use "./partials/_right-col-kantine";
+@use "./partials/_scrollbar-kantine";
+@use "./partials/_responsive-kantine";
+
+
+
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
@@ -14,6 +25,7 @@ positioning and colouring of dots
 ...
 */
 
+/* Brug CSS-variablen defineret i variables-partialen så font-size kan styres centralt */
 html {
-  font-size: 16px;
+  font-size: var(--base-font-size, 16px);
 }

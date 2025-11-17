@@ -1,0 +1,50 @@
+/* Højre kolonne: detaljer og fremvisning af valgt dag */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  padding: 24px;
+  background: var(--box-bg);
+  color: var(--box-text);
+  border-radius: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  min-height: 0;
+
+  h2 { margin-top: 0; font-size: 1.35rem; }
+
+  /* Indholdet der viser dagens detaljer centreres */
+  .today-details {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .today-details h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .day-date {
+    margin: 6px 0 12px 0;
+    color: #666;
+    font-size: 1.02rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+    display: inline-block;
+    text-align: center;
+    list-style-position: inside;
+  }
+
+  li {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 1.08rem;
+    text-align: center;
+  }
+}

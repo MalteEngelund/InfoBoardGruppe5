@@ -1,0 +1,37 @@
+/* Fælles bokse: baggrund og skygge for kantine-komponenter */
+.canteen-box,
+.left-col,
+.right-col {
+  background: var(--box-bg);
+  color: var(--box-text);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Overskrifter skal være tydelige på mørk baggrund */
+.canteen-box h2,
+.left-header h2,
+.right-col h2,
+.today-details h3,
+.day-name-left {
+  color: var(--box-text);
+}
+
+/* Header-sektion i venstre kolonne med ugebadge */
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  h2 { margin: 0; font-size: 1.1rem; line-height: 1; }
+}
+
+/* Uge-badge styling */
+.week-badge {
+  background: rgba(255,255,255,0.08);
+  color: var(--box-text);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,15 @@
+/* Layout: hovedgrid og kolonneopsætning */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 540px 540px;
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Venstre kolonne: stak af elementer */
+.left-col {
+  display: flex;
+  flex-direction: column;
+}
