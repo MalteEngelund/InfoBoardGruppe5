@@ -3,13 +3,18 @@
 // Importer app-controller (module) — mappen hedder "controler" (én 'l')
 import Controller from './controler/controller.js';
 
-// Hoved-bootstrap: start controller når DOM er klar. Hvis DOM allerede er loaded, kør straks.
+// Export a ready promise that resolves when the kantine controller has rendered.
 function startApp() {
-  Controller.init('cantineByJack');
+  return Controller.init('cantineByJack');
 }
 
-if (document.readyState === 'interactive' || document.readyState === 'complete') {
-  startApp();
-} else {
-  document.addEventListener('DOMContentLoaded', startApp);
-}
+export const ready = (function() {
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    return startApp();
+  }
+  return new Promise((resolve, reject) => {
+    document.addEventListener('DOMContentLoaded', () => {
+      startApp().then(resolve).catch(reject);
+    }, { once: true });
+  });
+})();

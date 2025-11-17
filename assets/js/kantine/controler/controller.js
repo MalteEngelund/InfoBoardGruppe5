@@ -16,9 +16,9 @@ const Controller = {
 
   // Init: opret view-instans og start hent/render-flow
   init(rootId = 'cantineByJack') {
-    // Start point: opret view med angivet rootId og læs data
+    // Start point: opret view med angivet rootId og returner promise fra loadAndRender
     this.view = new View(rootId);
-    this.loadAndRender();
+    return this.loadAndRender();
   },
 
   // Hent data fra model, filtrer og render grid via view

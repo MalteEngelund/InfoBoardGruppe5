@@ -11,8 +11,17 @@
 
 		for (const p of modulePaths) {
 			try {
-				await import(p);
+				const mod = await import(p);
 				console.log(`${p} loaded`);
+				// Hvis modulet eksporterer en "ready" promise, vent på den før vi går videre.
+				if (mod && mod.ready && typeof mod.ready.then === 'function') {
+					try {
+						await mod.ready;
+						console.log(`${p} ready`);
+					} catch (errReady) {
+						console.warn(`${p} ready rejected`, errReady);
+					}
+				}
 			} catch (err) {
 				console.error(`Kunne ikke loade modulet ${p}`, err);
 			}

@@ -8,7 +8,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: $bg;
   color: #111827;
-  padding: 24px;
-  display: flex;
-  justify-content: center;
+  padding: 0; /* fjern ydre luft så layout kan være fuld-bleed */
+  min-height: 100%;
+  /* Hvis du vil have indre luft rundt om nyheds-appen i stedet for ydre kant,
+     sæt det på .app (fx .app { padding: 24px; box-sizing: border-box; }) */
 }
