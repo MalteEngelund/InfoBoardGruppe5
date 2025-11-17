@@ -1,0 +1,19 @@
+@import 'variables-ur-vejr';
+
+// Klokken større
+#clock {
+  /* halveret størrelse (varierer responsivt) */
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  color: $clock-color;
+
+  /* fjern kassen/indramning */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+
+  margin-bottom: 0.8rem;
+}
