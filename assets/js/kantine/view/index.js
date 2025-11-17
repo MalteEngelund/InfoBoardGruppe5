@@ -9,7 +9,14 @@ export class View {
     this.app = document.getElementById(rootId) || document.body;
   }
 
-  clear() { this.app.innerHTML = ''; }
+  clear() {
+    // Fjern kun den tidligere menu-grid vi selv har oprettet, behold øvrigt indhold
+    const existing = this.app.querySelector('.menu-grid');
+    if (existing) existing.remove();
+    // fjern eventuelle tidligere fejl-boxer fra kantine hvis nødvendigt
+    const oldError = this.app.querySelector('.canteen-box');
+    if (oldError) oldError.remove();
+  }
 
   renderError(message, raw) {
     // Vis simpel fejl-box med besked og evt. rå respons (forkortet)

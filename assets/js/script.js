@@ -1,20 +1,22 @@
 (async function loadModules() {
 	try {
-		// Load kantine/main.js, ur-vejr/main.js, bustider/script.js og skema/script.js
+		// Load moduler sekventielt for at sikre deterministic append-ordre i DOM
 		const modulePaths = [
 			'./kantine/main.js',
 			'./ur-vejr/main.js',
 			'./bustider/script.js',
-			'./skema/script.js'
+			'./skema/script.js',
+			'./nyheder/main.js'
 		];
-		const results = await Promise.allSettled(modulePaths.map(p => import(p)));
 
-		// Log result for each module
-		results.forEach((r, i) => {
-			const name = modulePaths[i] || `module[${i}]`;
-			if (r.status === 'fulfilled') console.log(`${name} loaded`);
-			else console.error(`Kunne ikke loade modulet ${name}`, r.reason);
-		});
+		for (const p of modulePaths) {
+			try {
+				await import(p);
+				console.log(`${p} loaded`);
+			} catch (err) {
+				console.error(`Kunne ikke loade modulet ${p}`, err);
+			}
+		}
 	} catch (err) {
 		console.error('Fejl ved loading af moduler', err);
 	}

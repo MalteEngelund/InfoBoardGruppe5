@@ -4,8 +4,13 @@ export class View {
     this.app = document.getElementById(rootId) || document.body;
   }
 
-  // Ryd root-element
-  clear() { this.app.innerHTML = ''; }
+  // Ryd kun tidligere menu-grid / fejl-box (bevar andre børn, fx nyheder)
+  clear() {
+    const existing = this.app.querySelector('.menu-grid');
+    if (existing) existing.remove();
+    const oldError = this.app.querySelector('.canteen-box');
+    if (oldError) oldError.remove();
+  }
 
   // Simpelt error-view — viser fejlbesked og kort rå respons hvis tilgængelig
   renderError(message, raw) {

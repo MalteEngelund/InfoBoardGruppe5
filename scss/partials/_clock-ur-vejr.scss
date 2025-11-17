@@ -1,4 +1,4 @@
-@import 'variables-ur-vejr';
+@use "./variables-ur-vejr" as *;
 
 // Klokken større
 #clock {

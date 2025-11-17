@@ -480,7 +480,6 @@ so that all global styling can be called from the same namespace.
   font-family: "Inter", sans-serif;
   font-size: 4rem;
   color: #fff;
-  width: -moz-fit-content;
   width: fit-content;
   min-width: 350px;
   height: 40px;
@@ -940,6 +939,130 @@ hr {
   margin-bottom: 0.8rem;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f6f7f9;
+  color: #111827;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.app__header {
+  margin-bottom: 16px;
+}
+
+.app__header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.feed {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.feed__loading,
+.feed__error {
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  color: #6b7280;
+}
+
+/* Note: Detailed .card/.card__image/.card__content rules were previously injected from JS.
+   De er flyttet her så al styling ligger i SCSS. */
+.card {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(13, 38, 59, 0.06);
+}
+
+/* Indhold (tekstboks) - fylder samme højde som billedet */
+.card__content {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  background: #425462;
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  /* gør tekstboksen samme faste bredde/højde som billedet */
+  flex: 0 0 500px;
+  width: 500px;
+  height: 320px;
+  min-width: 500px;
+  overflow: auto; /* hvis indhold er længere end kassen, vis scroll */
+}
+.card__content a {
+  color: rgba(230, 240, 251, 0.95);
+  text-decoration: none;
+}
+.card__content a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Billedcontainer: begræns størrelse, brug billedets naturlige højde */
+.card__image {
+  flex: 0 0 500px;
+  width: 500px;
+  height: 320px;
+  overflow: hidden;
+  order: 2;
+  border-radius: 0;
+}
+
+.card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+@media (max-width: 720px) {
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card__image {
+    width: 100%;
+    height: 180px;
+    flex: none;
+    order: 2;
+  }
+  .card__content {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns

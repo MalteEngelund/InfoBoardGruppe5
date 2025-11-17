@@ -1,4 +1,4 @@
-@import 'variables-ur-vejr';
+@use "./variables-ur-vejr" as *;
 
 hr {
   width: min(90%, 1100px);

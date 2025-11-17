@@ -20,6 +20,13 @@ Variables include colours, negative space (i.e. global margins, etc.), and perha
 @use "./partials/_meta-ur-vejr";
 @use "./partials/_clock-ur-vejr";
 
+// Tilføjet: kald alle 'nyheder' partials
+@use "./partials/variables-nyheder";
+@use "./partials/_base-nyheder";
+@use "./partials/_app-nyheder";
+@use "./partials/_card-nyheder";
+@use "./partials/_responsive-nyheder";
+
 
 
 /* TO DO

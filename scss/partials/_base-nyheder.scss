@@ -1,0 +1,14 @@
+@use "./variables-nyheder" as *;
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: $bg;
+  color: #111827;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
