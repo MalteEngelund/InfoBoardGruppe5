@@ -1,15 +1,17 @@
 (async function loadModules() {
 	try {
-		// Load kantine/main.js, ur-vejr/main.js and bustider/script.js
-		const results = await Promise.allSettled([
-			import('./kantine/main.js'),
-			import('./ur-vejr/main.js'),
-			import('./bustider/script.js')
-		]);
+		// Load kantine/main.js, ur-vejr/main.js, bustider/script.js og skema/script.js
+		const modulePaths = [
+			'./kantine/main.js',
+			'./ur-vejr/main.js',
+			'./bustider/script.js',
+			'./skema/script.js'
+		];
+		const results = await Promise.allSettled(modulePaths.map(p => import(p)));
 
 		// Log result for each module
 		results.forEach((r, i) => {
-			const name = i === 0 ? 'kantine/main.js' : i === 1 ? 'ur-vejr/main.js' : 'bustider/script.js';
+			const name = modulePaths[i] || `module[${i}]`;
 			if (r.status === 'fulfilled') console.log(`${name} loaded`);
 			else console.error(`Kunne ikke loade modulet ${name}`, r.reason);
 		});

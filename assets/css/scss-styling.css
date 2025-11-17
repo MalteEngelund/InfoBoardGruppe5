@@ -899,8 +899,8 @@ hr {
   height: 64px;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 24px; /* øget afstand fra temperatur */
-  transform: translateX(24px); /* flyt mere mod højre */
+  margin-left: 8px;
+  transform: translateX(-24px); /* flyt mere mod venstre */
 }
 
 /* Mobile: mildere forskydning så layout ikke bryder */
@@ -916,11 +916,12 @@ hr {
   #date {
     white-space: normal; /* tillad brud på små skærme */
   }
+  /* Juster også på mobil så ikonet ikke kommer for tæt på skemaet */
   #date #weather-icon {
     width: 48px;
     height: 48px;
-    transform: translateX(6px);
-    margin-left: 8px;
+    transform: translateX(-8px);
+    margin-left: 6px;
   }
 }
 #clock {
