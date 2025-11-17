@@ -67,14 +67,16 @@ html, body {
   border: none;
 
   margin-bottom: 0.8rem;
+
+  /* flyt klokken lidt op for at give plads til nyheds-overlay */
+  transform: translateY(-0.6rem);
+  position: relative;
+  z-index: 10; /* sørg for klokken ligger ovenpå overlay */
 }
 
-hr {
-  width: min(90%, 1100px);
-  margin: 0.6rem auto;
-  border: none;
-  height: 2px;
-  background: rgba(0,0,0,0.12);
+/* mindre justering på små skærme */
+@media (max-width: 520px) {
+  #clock { transform: translateY(-0.4rem); }
 }
 
 /* Meta-row layout */

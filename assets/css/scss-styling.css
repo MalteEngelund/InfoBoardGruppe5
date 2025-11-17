@@ -386,6 +386,57 @@ body {
   max-width: 1000px;
 }
 
+/* Overlay-variant: centreret overlay ovenpå baggrundsbillede */
+.app.nyheder-feed {
+  position: absolute; /* fallback hvis JS ikke har sat det */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: min(900px, 90%);
+  max-width: 900px;
+  max-height: 36vh; /* markant mindre højde */
+  overflow: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(66, 84, 98, 0.85); /* semi-transparent baggrund for læsbarhed */
+  border-radius: 6px;
+}
+
+/* lidt større på store skærme hvis ønskeligt */
+@media (min-width: 1400px) {
+  .app.nyheder-feed {
+    max-height: 44vh;
+  }
+}
+/* Responsivt: mindre på små skærme */
+@media (max-width: 520px) {
+  .app.nyheder-feed {
+    width: 94%;
+    max-height: 42vh;
+    padding: 0.6rem;
+  }
+}
+/* sikre at indholdet i feed kan scrolle uden at bryde layout */
+.app.nyheder-feed .feed {
+  max-height: calc(100% - 3.5rem);
+  overflow: auto;
+}
+
+/* Sørg for at indholdet i overlay ikke overskrider forælderen */
+.app.nyheder-feed .feed {
+  max-height: 100%;
+  overflow: auto;
+}
+
+/* Responsivt: lidt mindre padding på små skærme */
+@media (max-width: 520px) {
+  .app.nyheder-feed {
+    width: 94%;
+    padding: 1rem;
+    transform: translate(-50%, -50%); /* behold centreret */
+  }
+}
 .app__header {
   margin-bottom: 16px;
 }
@@ -464,6 +515,56 @@ body {
   opacity: 0.85;
 }
 
+/* Overlay wrapper inde i fx #cantineByJack */
+.nyheder-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 6;
+  padding: 0.5rem;
+}
+
+/* Overlay wrapper når nyheder indsættes i kantine-området */
+.nyheder-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 4;
+  padding: 0.25rem;
+}
+
+/* App som overlay indeni overlay-wrapper (læsbart, afrundet og scroll) */
+.app.nyheder-feed {
+  background: rgba(66, 84, 98, 0.9); /* semi-transparent mørk baggrund for læsbarhed */
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.app.nyheder-feed .feed {
+  max-height: calc(34vh - 3rem);
+  overflow: auto;
+}
+
+/* Responsiv: lidt smallere på små skærme */
+@media (max-width: 520px) {
+  .nyheder-overlay {
+    padding: 0.2rem;
+  }
+  .app.nyheder-feed {
+    width: 92%;
+    max-height: 40vh;
+    padding: 0.6rem;
+  }
+}
 /* nyt: brug nyheder-partials fra partials */
 /* Scope alle nyheds-card regler til .nyheder-feed for at undgå globale kollissioner */
 .nyheder-feed {
@@ -614,16 +715,18 @@ html, body {
   box-shadow: none;
   border: none;
   margin-bottom: 0.8rem;
+  /* flyt klokken lidt op for at give plads til nyheds-overlay */
+  transform: translateY(-0.6rem);
+  position: relative;
+  z-index: 10; /* sørg for klokken ligger ovenpå overlay */
 }
 
-hr {
-  width: min(90%, 1100px);
-  margin: 0.6rem auto;
-  border: none;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.12);
+/* mindre justering på små skærme */
+@media (max-width: 520px) {
+  #clock {
+    transform: translateY(-0.4rem);
+  }
 }
-
 /* Meta-row layout */
 .meta-row {
   width: min(90%, 1100px);
