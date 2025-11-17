@@ -47,8 +47,9 @@ hr {
   height: 64px;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 8px;
-  transform: translateX(-24px); /* flyt mere mod venstre */
+  /* øget afstand fra temperatur og flyt lidt mere mod højre */
+  margin-left: 60px;
+  transform: translateX(28px);
 }
 
 /* Mobile: mildere forskydning så layout ikke bryder */
@@ -62,11 +63,11 @@ hr {
   #date {
     white-space: normal; /* tillad brud på små skærme */
   }
-  /* Juster også på mobil så ikonet ikke kommer for tæt på skemaet */
+  /* Mobil: lidt mere til højre end før, men begrænset så layout ikke bryder */
   #date #weather-icon {
     width: 48px;
     height: 48px;
-    transform: translateX(-8px);
-    margin-left: 6px;
+    transform: translateX(12px);
+    margin-left: 18px;
   }
 }
