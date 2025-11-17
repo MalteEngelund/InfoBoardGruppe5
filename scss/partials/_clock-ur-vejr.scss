@@ -2,8 +2,8 @@
 
 // Klokken større
 #clock {
-  /* halveret størrelse (varierer responsivt) */
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  /* Forøget størrelse (ca. dobbelt): min 7rem, flydende, maks 14rem */
+  font-size: clamp(7rem, 8vw, 14rem);
   font-weight: 800;
   line-height: 1;
   color: $clock-color;
@@ -15,5 +15,17 @@
   box-shadow: none;
   border: none;
 
-  margin-bottom: 0.8rem;
+  margin-bottom: 3.5rem; /* større afstand - juster hvis nødvendigt */
+
+  /* Centrer uret i samme max-bredde som hr i meta-partial */
+  display: block;
+  width: min(90%, 1100px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+
+  /* Sørg for at uret ligger ovenpå hr */
+  position: relative;
+  z-index: 2;
 }

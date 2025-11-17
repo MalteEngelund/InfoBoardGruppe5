@@ -2,10 +2,14 @@
 
 hr {
   width: min(90%, 1100px);
-  margin: 0.6rem auto;
+  margin: 1.6rem auto 0.6rem; /* lidt ekstra plads over linjen så uret kan overlappe pænt */
   border: none;
   height: 2px;
-  background: rgba(0,0,0,0.12);
+  background: #ffffff; /* hvid linje */
+
+  /* sørg for linjen ligger under uret */
+  position: relative;
+  z-index: 1;
 }
 
 /* Meta-row layout */
@@ -16,6 +20,12 @@ hr {
   align-items: center;
   gap: 1rem;
   padding: 0 0.5rem;
+  color: #ffffff; /* gør al tekst under linjen hvid */
+
+  /* sørg for at vi kan placere ikonet absolut i forhold til denne container
+     og centrer meta-row samme som hr (så ikonet stopper hvor linjen stopper) */
+  position: relative;
+  margin: 0 auto;
 }
 
 /* Dato + temperatur + ikon i samme række */
@@ -23,7 +33,7 @@ hr {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  font-size: 1.25rem;
+  font-size: 2rem; /* større tekst */
   opacity: 0.95;
   text-align: left;
 
@@ -37,19 +47,22 @@ hr {
 }
 
 #date .temp {
-  font-size: 1.25rem;
+  font-size: 2rem; /* matchet størrelse */
   font-weight: 700;
 }
 
-/* Ikonet: hold det på linjen, centreret vertikalt og rykket mere til højre */
+/* Ikonet: flyt ud til højre og placer det indenfor .meta-row's bredde */
 #date #weather-icon {
-  width: 64px;
-  height: 64px;
-  display: inline-block;
-  vertical-align: middle;
-  /* øget afstand fra temperatur og flyt lidt mere mod højre */
-  margin-left: 60px;
-  transform: translateX(28px);
+  width: 128px;
+  height: 128px;
+  display: block;
+
+  /* fjern tidligere margin/translate, brug absolut positionering */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0;
 }
 
 /* Mobile: mildere forskydning så layout ikke bryder */
@@ -63,11 +76,13 @@ hr {
   #date {
     white-space: normal; /* tillad brud på små skærme */
   }
-  /* Mobil: lidt mere til højre end før, men begrænset så layout ikke bryder */
+
+  /* På mobil: sæt ikonet tilbage i normal flow under datoen */
   #date #weather-icon {
-    width: 48px;
-    height: 48px;
-    transform: translateX(12px);
+    position: static;
+    transform: none;
     margin-left: 18px;
+    width: 96px;  /* mobil: dobbelt størrelse */
+    height: 96px;
   }
 }

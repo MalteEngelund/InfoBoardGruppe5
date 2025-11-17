@@ -27,10 +27,13 @@ const Controller = {
       const { days, week } = await this.model.fetchData();
       // Fjern dage der er overstået
       const visibleDays = days.filter(d => !this.isPastDay(d));
-      // Render venstre/højre kolonne, gem DOM-noder for videre brug
-      this.nodes = this.view.renderMainGrid(visibleDays, week);
-      // Find bedste initialvalg (i dag hvis muligt)
-      const todayIdx = findTodayIndex(visibleDays);
+      // Vis kun maks. 3 dage ad gangen
+      const MAX_DAYS = 3;
+      const visibleSubset = visibleDays.slice(0, MAX_DAYS);
+      // Render venstre/højre kolonne med det begrænsede sæt, gem DOM-noder for videre brug
+      this.nodes = this.view.renderMainGrid(visibleSubset, week);
+      // Find bedste initialvalg (i dag hvis muligt) indenfor det viste subset
+      const todayIdx = findTodayIndex(visibleSubset);
       const initial = (todayIdx >= 0 ? todayIdx : 0);
       this.selectDay(initial);
       this.bindEvents();
