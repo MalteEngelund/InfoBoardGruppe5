@@ -5,16 +5,16 @@ $bus-nepal-light: #b5b5ff;
 $color-transparent-beige: #f7c994cd;
 
 .bus-schedule {
-  background-color: globals.$color-fjord; // Dark blue-grey background (#425462)
+  // background-color: globals.$color-fjord; // Dark blue-grey background (#425462)
   padding: 2rem;
   align-items: center;
-  max-width: 400px; // Constrain the width like in the design
+  // max-width: 400px; // Constrain the width like in the design
   //   margin: 0 auto; // Center the container
 
   h2 {
     color: globals.$color-white;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 4rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -37,13 +37,13 @@ $color-transparent-beige: #f7c994cd;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 40px;
 }
 
 .bus-item {
   display: flex;
   align-items: center; // Centers all h3 and p elements vertically
-  border-radius: 50px; // Full pill shape
+  border-radius: 120px; // Full pill shape
 
   // Reset margins on all text elements to ensure proper centering
   h3,
@@ -56,31 +56,31 @@ $color-transparent-beige: #f7c994cd;
 
   // Bus line specific colors using your actual color variables
   &[data-line="6"] {
-    background-color: $bus-nepal-light;
+    background-color: #F5C96188;
     color: globals.$color-white;
   }
 
   &[data-line="17"] {
-    background-color: $color-transparent-beige;
+    background-color: #f4690c99;
     color: globals.$color-white;
   }
 
   &[data-line="18"] {
-    background-color: globals.$color-mg-light-green;
+    background-color: #97BEAC99;
     color: globals.$color-white;
   }
 
   .code {
     // Circular bus number
     background-color: rgba(255, 255, 255, 0.2);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 80px 0 0 80px;
     display: flex;
     align-items: center; // Center vertically
     justify-content: center; // Center horizontally
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 2rem;
     margin-right: 1rem;
     flex-shrink: 0;
     text-align: center;
@@ -90,37 +90,37 @@ $color-transparent-beige: #f7c994cd;
   // Bus line specific colors for h3 circle borders
   &[data-line="6"] .code {
     border-color: $bus-nepal;
-    background-color: $bus-nepal; // nepal with transparency
+    background-color: #d6af5499; // nepal with transparency
   }
 
   &[data-line="17"] .code {
     border-color: globals.$color-wu-safety-orange;
-    background-color: #f4690c; // orange with transparency
+    background-color: #f3701899; // orange with transparency
   }
 
   &[data-line="18"] .code {
     border-color: globals.$color-mg-dark-green;
-    background-color: globals.$color-mg-dark-green; // dark green with transparency
+    background-color: #97BEAC99; // dark green with transparency
   }
 
   .dest {
     flex: 1; // Takes up available space
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 2rem;
     margin: 0;
     text-transform: uppercase;
   }
 
   .time {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 2rem;
     margin: 0;
     margin-left: auto; // Push to right
   }
 
   .mins {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
     margin: 0;
     margin-left: 1rem; // Add space between time and mins
     text-align: center;

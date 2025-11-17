@@ -4,50 +4,50 @@
 #activitiesByMalte{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding: 10px;
 }
 
 .schedule-item {
   display: flex;
-  
   align-items: center;
   justify-content: space-between;
   // background: #f5c793;
-  border-radius: 30px;
+  border-radius: 120px;
   padding: 0 10px 0 0;
   font-family: 'Inter', sans-serif;
-  font-size: 4rem;
+  // font-size: 4vw;
   color: #fff;
   width: fit-content;
   min-width: 350px;
-  height: 40px;
+  height: 120px;
   width: 100%;
 
   // Circle/left label
   h3 {
     color: #fff;
-    border-radius: 22px 0 0 22px ; // px her virker lidt skørt, så det skal ændres
-    width: 40px;
-    height: 40px;
+    border-radius: 80px 0 0 80px ; // px her virker lidt skørt, så det skal ændres
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 2rem;
     margin: 0;
     flex-shrink: 0;
-    padding: 0 25px;
+    padding: 0 25px; 
   }
 
   p {
     margin: 0;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 2rem;
+    font-weight: 600;
 
     &:nth-of-type(1) {
       flex: 1;
-      font-weight: 500;
+      font-weight: 600;
       padding-left: 10px;
     }
 
@@ -61,20 +61,20 @@
     &:nth-of-type(3) {
       flex: 1;
       text-align: right;
-      font-weight: 500;
+      font-weight: 600;
       padding-right: 10px;
     }
     &:nth-of-type(4) {
        flex: 1;
       text-align: right;
-      font-weight: 500;
+      font-weight: 600;
       padding-right: 5px;
     }
   }
 }
 .education-circles {
   display: flex;
-  gap: 12px;
+  gap: 40px;
   align-items: center;
   justify-content: right;
 
@@ -88,19 +88,19 @@
     aspect-ratio: 1 / 1; 
     border-radius: 50%;  
     color: #fff;
-    font-size: 30px;
+    font-size: 2rem;
+    font-weight: 600;
     line-height: 1;
     padding: 0;
 
     &:nth-of-type(1){
-      background-color: #f4690c;
+      background-color: #f4690c99;
     }
     &:nth-of-type(2){
-      background-color: #97BEAC;
+      background-color: #97BEAC99;
     }
     &:nth-of-type(3){
-      background-color: #F5C961;
+      background-color: #F5C96199;
     }
-
   }
 }
