@@ -4,8 +4,8 @@ $card-bg: #ffffff;
 $muted: #6b7280;
 $accent: #0066cc;
 $radius: 8px;
-$max-width: 1000px;
+$max-width: 1080px;    // øget samlet max-bredde så boksen bliver større
 
-// Tilføj variabler til billede/kasse størrelse
-$card-image-width: 500px;
-$card-image-height: 320px;
+// Tilføj variabler til billede/kasse størrelse (større)
+$card-image-width: 540px;
+$card-image-height: 420px;

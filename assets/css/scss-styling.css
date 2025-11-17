@@ -646,9 +646,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: calc(var(--left-rows) * var(--row-height));
-  max-height: calc(var(--left-rows) * var(--row-height));
-  overflow-y: auto;
+  /* Vis alle dage samtidigt: fjern faste højdebegrænsninger og scrollbar */
+  min-height: auto;
+  max-height: none;
+  overflow-y: visible;
   padding-right: 6px;
 }
 
@@ -960,7 +961,7 @@ body {
 
 .app {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1080px;
 }
 
 .app__header {
@@ -1012,12 +1013,18 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 0;
   box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
-  /* gør tekstboksen samme faste bredde/højde som billedet */
-  flex: 0 0 500px;
-  width: 500px;
-  height: 320px;
-  min-width: 500px;
+  /* Forøgede, responsive tekststørrelser (ca. dobbelt) */
+  font-size: clamp(28px, 2vw, 36px);
+  line-height: 1.25;
+  /* behold højde/flow men gør indhold fleksibelt */
+  flex: 0 0 540px;
+  width: 540px;
+  height: 420px;
+  min-width: 540px;
   overflow: auto; /* hvis indhold er længere end kassen, vis scroll */
+  /* Titel: fordoblet */
+  /* Meta/dato: fordoblet */
+  /* Uddrag: fordoblet */
 }
 .card__content a {
   color: rgba(230, 240, 251, 0.95);
@@ -1027,12 +1034,38 @@ body {
   color: #ffffff;
   text-decoration: underline;
 }
+.card__content .card__title, .card__content .card__title a {
+  margin: 0 0 6px 0;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: inherit;
+  text-decoration: none;
+}
+.card__content .card__meta {
+  font-size: clamp(22px, 2vw, 26px);
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+.card__content .card__excerpt {
+  font-size: clamp(26px, 2.2vw, 32px);
+  margin: 0;
+  color: rgba(235, 245, 255, 0.95);
+  /* Vis maks 4 linjer med ellipsis - WebKit og standard */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4; /* standard property for compatibility */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
 
 /* Billedcontainer: begræns størrelse, brug billedets naturlige højde */
 .card__image {
-  flex: 0 0 500px;
-  width: 500px;
-  height: 320px;
+  flex: 0 0 540px;
+  width: 540px;
+  height: 420px;
   overflow: hidden;
   order: 2;
   border-radius: 0;
