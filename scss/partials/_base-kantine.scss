@@ -1,0 +1,11 @@
+/* base: font, baggrund og baseline-typografi */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* Fjernet global lys baggrund og ydre padding så der ikke opstår en synlig kant */
+  background: transparent;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  font-size: var(--base-font-size);
+  line-height: 1.55;
+}

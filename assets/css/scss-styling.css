@@ -1,25 +1,6 @@
+@charset "UTF-8";
 /* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
 Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
-The following set of proportions looks quite next next to each other.
-There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
-*/
-/* @forward transfers the partials in the list below as a single partial, 
-so that all global styling can be called from the same namespace.
-*/
 /* Reset CSS */
 * {
   box-sizing: border-box;
@@ -191,6 +172,28 @@ textarea {
 /* @forward transfers the partials in the list below as a single partial, 
 so that all global styling can be called from the same namespace.
 */
+/* Colours 
+WU = web udvikler
+TG = teknisk grafiker
+MG = mediegrafiker
+*/
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* Gennemsigtig farve */
+/* SIZES (mostly negative space) some in vh, not all in vw like the font sizes */
+/* Font sizes */
+/* 16px / golden ratio (1.618) = about 10/16 or 5/8; 
+The following set of proportions looks quite next next to each other.
+There is a mix of numbers from the Fibonacci sequence and numbers multiplied by the golden ratio. 
+*/
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
+/* The globals namespace includes the partials called mixins, variables, typography, and misc-global-styling (e.g. of :root).
+Variables include colours, negative space (i.e. global margins, etc.), and perhaps other things (eventually).  */
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 /* Fonts in Figma design that we cannot use (not free): 
 'Century Gothic':
 - whole menu section, i.e. news feed in Figma design
@@ -357,17 +360,802 @@ so that all global styling can be called from the same namespace.
     background-color: variables.$color-transparent-beige;
 };
 */
-/* Colours 
-WU = web udvikler
-TG = teknisk grafiker
-MG = mediegrafiker
-*/
-/* TO DO: no transparent colour yet (version of fjord, dark orange and greyish beige) */
-/* Gennemsigtig farve */
-/* Gennemsigtig farve */
-/* Font sizes */
-/* 16px / golden ratio (1.618) = about 10/16 or 5/8; BUT:
-TO DO: letters on info board are way bigger than on our screen. Use vw/vh? */
+.bus-schedule {
+  padding: 2rem;
+  align-items: center;
+}
+.bus-schedule h2 {
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.bus-schedule h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 1rem 0 2rem 0;
+}
+
+.bus-departure-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bus-item {
+  display: flex;
+  align-items: center;
+  border-radius: 120px;
+}
+.bus-item h3,
+.bus-item p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.bus-item[data-line="6"] {
+  background-color: rgba(245, 201, 97, 0.5333333333);
+  color: #ffffff;
+}
+.bus-item[data-line="17"] {
+  background-color: rgba(244, 105, 12, 0.6);
+  color: #ffffff;
+}
+.bus-item[data-line="18"] {
+  background-color: rgba(151, 190, 172, 0.6);
+  color: #ffffff;
+}
+.bus-item .code {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 120px;
+  height: 120px;
+  border-radius: 80px 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  text-align: center;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+}
+.bus-item[data-line="6"] .code {
+  border-color: #1a26d4;
+  background-color: rgba(214, 175, 84, 0.6);
+}
+.bus-item[data-line="17"] .code {
+  border-color: #f4690c;
+  background-color: rgba(243, 112, 24, 0.6);
+}
+.bus-item[data-line="18"] .code {
+  border-color: #146e57;
+  background-color: rgba(151, 190, 172, 0.6);
+}
+.bus-item .dest {
+  flex: 1;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+.bus-item .time {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  margin-left: auto;
+}
+.bus-item .mins {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  margin-left: 1rem;
+  text-align: center;
+  padding-right: 1.5rem;
+}
+
+#activitiesByMalte {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 10px;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 120px;
+  padding: 0 10px 0 0;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  width: fit-content;
+  min-width: 350px;
+  height: 120px;
+  width: 100%;
+}
+.schedule-item h3 {
+  color: #fff;
+  border-radius: 80px 0 0 80px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+  flex-shrink: 0;
+  padding: 0 25px;
+}
+.schedule-item p {
+  margin: 0;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.schedule-item p:nth-of-type(1) {
+  flex: 1;
+  font-weight: 600;
+  padding-left: 10px;
+}
+.schedule-item p:nth-of-type(2) {
+  flex: 2;
+  text-align: center;
+  opacity: 0.9;
+  padding-left: 10px;
+}
+.schedule-item p:nth-of-type(3) {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  padding-right: 10px;
+}
+.schedule-item p:nth-of-type(4) {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  padding-right: 5px;
+}
+
+.education-circles {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: right;
+}
+.education-circles span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 4vw;
+  height: 4vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0;
+}
+.education-circles span:nth-of-type(1) {
+  background-color: rgba(244, 105, 12, 0.6);
+}
+.education-circles span:nth-of-type(2) {
+  background-color: rgba(151, 190, 172, 0.6);
+}
+.education-circles span:nth-of-type(3) {
+  background-color: rgba(245, 201, 97, 0.6);
+}
+
+/* Variabler: base størrelser og farver til layout og komponenter */
+:root {
+  /* typografi og skalering */
+  --base-font-size: 18px;
+  /* venstre kolonne: antal rækker og højde pr. række */
+  --left-rows: 5;
+  --row-height: 78px;
+  /* farvetema for bokse */
+  --box-bg: #425462;
+  --box-text: #ffffff;
+  --box-muted: #d7dde6;
+  --box-accent: rgba(255,255,255,0.08);
+}
+
+/* base: font, baggrund og baseline-typografi */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* Fjernet global lys baggrund og ydre padding så der ikke opstår en synlig kant */
+  background: transparent;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  font-size: var(--base-font-size);
+  line-height: 1.55;
+}
+
+/* Fælles bokse: baggrund og skygge for kantine-komponenter */
+.canteen-box,
+.left-col,
+.right-col {
+  /* semitransparent baggrund med alpha = 0.7 */
+  background: rgba(66, 84, 98, 0.7);
+  color: var(--box-text);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  font-size: 2rem; /* sætter tekststørrelse i kantine-bokse */
+}
+
+/* Overskrifter skal være tydelige på mørk baggrund */
+.canteen-box h2,
+.left-header h2,
+.right-col h2,
+.today-details h3,
+.day-name-left {
+  color: var(--box-text);
+}
+
+/* Header-sektion i venstre kolonne med ugebadge */
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.left-header h2 {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+/* Uge-badge styling */
+.week-badge {
+  /* ændret: højere opacitet så 'box i box' fremstår tydeligere */
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--box-text);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: inherit;
+}
+
+/* Layout: hovedgrid og kolonneopsætning */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 540px 540px;
+  gap: 0;
+  /* align width with hr/meta-row: stop where linjen stopper */
+  width: min(90%, 1100px);
+  /* match column total: 540 + 540 = 1080 so indhold flugter præcist */
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: stretch;
+  /* Brug samme tekststørrelse som ur/vejr (2rem) */
+  font-size: 2rem;
+}
+
+/* Sikr afstand mellem ur og kantine-sektionen */
+#cantineByJack {
+  margin-top: 3.5rem; /* juster efter ønsket afstand (fx 2rem / 4rem) */
+}
+
+/* Venstre kolonne: stak af elementer */
+.left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dage-liste: scrollbar og højdebegrænsning */
+.days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Vis alle dage samtidigt: fjern faste højdebegrænsninger og scrollbar */
+  min-height: auto;
+  max-height: none;
+  overflow-y: visible;
+  padding-right: 6px;
+}
+
+/* Hurtig-kort for dag (kompakt) */
+.day-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  cursor: pointer;
+  text-align: left;
+  /* arver font-størrelse fra .menu-grid (fx 2rem) */
+  font-size: inherit;
+}
+.day-card:hover {
+  background: #f3f7ff;
+}
+.day-card.selected {
+  background: #1a73e8;
+  color: #fff;
+  border-color: rgba(26, 115, 232, 0.6);
+}
+
+.day-name-small {
+  font-weight: 700;
+}
+
+.dish-count {
+  font-size: 0.85rem;
+}
+
+/* Fuldt liste-element for dag med detaljer */
+.day-list-item {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  /* arver global kantine-font */
+  font-size: inherit;
+}
+.day-list-item.selected {
+  background: #1a73e8;
+  color: #fff;
+  border-color: rgba(26, 115, 232, 0.6);
+}
+.day-list-item .day-name-left {
+  margin: 0 0 8px 0;
+  /* Titel arver samme størrelse — kan evt. differentieres hvis ønsket */
+  font-size: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.day-list-item ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.day-list-item li {
+  margin: 4px 0;
+  line-height: 1.3;
+}
+
+/* Styling til mørkere baggrund: tekstfarver og baggrund */
+.day-list-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--box-text);
+}
+.day-list-item ul li,
+.day-list-item p,
+.day-list-item .day-date {
+  color: #e6eef6;
+  /* sørg for at disse elementer også arver font-størrelsen */
+  font-size: inherit;
+}
+
+/* Markeret dag i listen */
+.day-list-item.selected {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--box-text);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Højre kolonne: detaljer og fremvisning af valgt dag */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  padding: 24px;
+  /* match left-col / canteen boxes: alpha = 0.7 */
+  background: rgba(66, 84, 98, 0.7);
+  color: var(--box-text);
+  border-radius: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  min-height: 0;
+  /* Arv af font-størrelse fra .menu-grid (fx 2rem) */
+  font-size: inherit;
+  /* Dagens ret bør bruge samme font-size som containeren */
+  /* Indholdet der viser dagens detaljer centreres */
+}
+.right-col h2 {
+  margin-top: 0;
+  font-size: inherit;
+}
+.right-col .today-details {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.right-col .today-details h3 {
+  margin: 0 0 12px 0;
+  /* brug samme store skrift eller arvelig størrelse */
+  font-size: inherit;
+  font-weight: 700;
+}
+.right-col .day-date {
+  margin: 6px 0 12px 0;
+  color: #666;
+  font-size: inherit;
+}
+.right-col ul {
+  margin: 0;
+  padding-left: 0;
+  display: inline-block;
+  text-align: center;
+  list-style-position: inside;
+}
+.right-col li {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: inherit;
+  text-align: center;
+}
+
+/* Scrollbar: standard styling for days-list (WebKit) */
+.days-list::-webkit-scrollbar {
+  width: 10px;
+}
+.days-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+}
+.days-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar variant til mørk baggrund */
+.days-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.days-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive: mindre skærme */
+@media (max-width: 880px) {
+  /* lidt mindre base-font-size for bedre pasform */
+  :root {
+    --base-font-size: 16px;
+  }
+  /* enkel kolonne i stedet for to kolonner */
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  /* placer højre kolonne efter indhold og giv lidt luft */
+  .right-col {
+    order: 2;
+    margin-top: 12px;
+    padding: 16px;
+    min-height: auto;
+    align-self: auto;
+  }
+  /* mindre overskrift i højre kolonne på små skærme */
+  .right-col h2 {
+    font-size: 1.15rem;
+  }
+  /* lidt mindre underoverskrift for bedre layout */
+  .today-details h3 {
+    font-size: 1.05rem;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Fjern global baggrund, så den lyse ramme ikke vises */
+  background: transparent;
+  color: #111827;
+}
+
+.infoboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: auto;
+  /* Fjern ydre padding så der ikke opstår en synlig kant */
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+hr {
+  width: min(90%, 1100px);
+  margin: 1.6rem auto 0.6rem; /* lidt ekstra plads over linjen så uret kan overlappe pænt */
+  border: none;
+  height: 2px;
+  background: #ffffff; /* hvid linje */
+  /* sørg for linjen ligger under uret */
+  position: relative;
+  z-index: 1;
+}
+
+/* Meta-row layout */
+.meta-row {
+  width: min(90%, 1100px);
+  display: flex;
+  justify-content: flex-start; /* dato til venstre */
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.5rem;
+  color: #ffffff; /* gør al tekst under linjen hvid */
+  /* sørg for at vi kan placere ikonet absolut i forhold til denne container
+     og centrer meta-row samme som hr (så ikonet stopper hvor linjen stopper) */
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Dato + temperatur + ikon i samme række */
+#date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2rem; /* større tekst */
+  opacity: 0.95;
+  text-align: left;
+  /* Sørg for at dato + temp + ikon forbliver på samme linje */
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+#date .date-text {
+  font-weight: 500;
+}
+
+#date .temp {
+  font-size: 2rem; /* matchet størrelse */
+  font-weight: 700;
+}
+
+/* Ikonet: flyt ud til højre og placer det indenfor .meta-row's bredde */
+#date #weather-icon {
+  width: 128px;
+  height: 128px;
+  display: block;
+  /* fjern tidligere margin/translate, brug absolut positionering */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0;
+}
+
+/* Mobile: mildere forskydning så layout ikke bryder */
+@media (max-width: 520px) {
+  .meta-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  #date, #date .temp {
+    font-size: 1rem;
+  }
+  #date {
+    white-space: normal; /* tillad brud på små skærme */
+  }
+  /* På mobil: sæt ikonet tilbage i normal flow under datoen */
+  #date #weather-icon {
+    position: static;
+    transform: none;
+    margin-left: 18px;
+    width: 96px; /* mobil: dobbelt størrelse */
+    height: 96px;
+  }
+}
+#clock {
+  /* Forøget størrelse (ca. dobbelt): min 7rem, flydende, maks 14rem */
+  font-size: clamp(7rem, 8vw, 14rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  /* fjern kassen/indramning */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 3.5rem; /* større afstand - juster hvis nødvendigt */
+  /* Centrer uret i samme max-bredde som hr i meta-partial */
+  display: block;
+  width: min(90%, 1100px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+  /* Sørg for at uret ligger ovenpå hr */
+  position: relative;
+  z-index: 2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f6f7f9;
+  color: #111827;
+  padding: 0; /* fjern ydre luft så layout kan være fuld-bleed */
+  min-height: 100%;
+  /* Hvis du vil have indre luft rundt om nyheds-appen i stedet for ydre kant,
+     sæt det på .app (fx .app { padding: 24px; box-sizing: border-box; }) */
+}
+
+.app {
+  /* Match meta/hr width so nyheder flugter med kantine og linjen */
+  width: min(90%, 1100px);
+  /* Brug samme max-bredde som menu-grid (1080px) så kanter flugter */
+  max-width: 1080px;
+  /* Samme lodrette afstand som mellem ur og kantine */
+  margin: 3.5rem auto 16px;
+  /* Samme semitransparente baggrund som kantine */
+  background: rgba(66, 84, 98, 0.7);
+  color: var(--box-text);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  font-size: 2rem; /* match kantine tekststørrelse */
+}
+
+.app__header {
+  margin-bottom: 16px;
+}
+
+.app__header h1 {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.feed {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.feed__loading,
+.feed__error {
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  color: #6b7280;
+}
+
+/* Note: Detailed .card/.card__image/.card__content rules were previously injected from JS.
+   De er flyttet her så al styling ligger i SCSS. */
+.card {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(13, 38, 59, 0.06);
+}
+
+/* Indhold (tekstboks) - fylder samme højde som billedet */
+.card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  /* match kantine semitransparente baggrund */
+  background: rgba(66, 84, 98, 0.7);
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  /* Forøgede, responsive tekststørrelser (ca. dobbelt) */
+  font-size: clamp(28px, 2vw, 36px);
+  line-height: 1.25;
+  /* behold højde/flow men gør indhold fleksibelt */
+  flex: 0 0 524px;
+  width: 524px;
+  height: 420px;
+  min-width: 524px;
+  overflow: auto; /* hvis indhold er længere end kassen, vis scroll */
+  /* Titel: fordoblet */
+  /* Meta/dato: fordoblet */
+  /* Uddrag: mindre og clamp til max linjer */
+  /* stylelint-disable property-ignored-due-to-display */
+  /* stylelint-enable property-ignored-due-to-display */
+}
+.card__content a {
+  color: rgba(230, 240, 251, 0.95);
+  text-decoration: none;
+}
+.card__content a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.card__content .card__title, .card__content .card__title a {
+  margin: 0 0 6px 0;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: inherit;
+  text-decoration: none;
+}
+.card__content .card__meta {
+  font-size: clamp(22px, 2vw, 26px);
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+.card__content .card__excerpt {
+  font-size: clamp(11px, 0.9vw, 13px);
+  margin: 0;
+  color: rgba(235, 245, 255, 0.95);
+  /* Vis maks 4 linjer med ellipsis - WebKit og standard */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4; /* standard property for compatibility */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+/* Billedcontainer: begræns størrelse, brug billedets naturlige højde */
+.card__image {
+  flex: 0 0 524px;
+  width: 524px;
+  height: 420px;
+  overflow: hidden;
+  order: 2;
+  border-radius: 0;
+}
+
+.card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+@media (max-width: 720px) {
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card__image {
+    width: 100%;
+    height: 180px;
+    flex: none;
+    order: 2;
+  }
+  .card__content {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
 /* TO DO
 CSS reset
 backgrounds for 1st and 2nd columns
@@ -377,8 +1165,8 @@ visible gaps or borders that form a line under headings and time (are additional
 typography (font family, size of h1, h2, h3, etc.)
 positioning and colouring of dots
 ...
-*//*# sourceMappingURL=scss-styling.css.map */
 */
+/* Brug CSS-variablen defineret i variables-partialen så font-size kan styres centralt */
 html {
-  font-size: 16px;
+  font-size: var(--base-font-size, 16px);
 }/*# sourceMappingURL=scss-styling.css.map */

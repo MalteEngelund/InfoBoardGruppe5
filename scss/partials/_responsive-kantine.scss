@@ -1,0 +1,17 @@
+/* Responsive: mindre skærme */
+@media (max-width: 880px) {
+  /* lidt mindre base-font-size for bedre pasform */
+  :root { --base-font-size: 16px; }
+
+  /* enkel kolonne i stedet for to kolonner */
+  .menu-grid { grid-template-columns: 1fr; }
+
+  /* placer højre kolonne efter indhold og giv lidt luft */
+  .right-col { order: 2; margin-top: 12px; padding: 16px; min-height: auto; align-self: auto; }
+
+  /* mindre overskrift i højre kolonne på små skærme */
+  .right-col h2 { font-size: 1.15rem; }
+
+  /* lidt mindre underoverskrift for bedre layout */
+  .today-details h3 { font-size: 1.05rem; }
+}

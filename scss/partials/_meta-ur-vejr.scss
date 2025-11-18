@@ -1,0 +1,88 @@
+@use "./variables-ur-vejr" as *;
+
+hr {
+  width: min(90%, 1100px);
+  margin: 1.6rem auto 0.6rem; /* lidt ekstra plads over linjen så uret kan overlappe pænt */
+  border: none;
+  height: 2px;
+  background: #ffffff; /* hvid linje */
+
+  /* sørg for linjen ligger under uret */
+  position: relative;
+  z-index: 1;
+}
+
+/* Meta-row layout */
+.meta-row {
+  width: min(90%, 1100px);
+  display: flex;
+  justify-content: flex-start; /* dato til venstre */
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.5rem;
+  color: #ffffff; /* gør al tekst under linjen hvid */
+
+  /* sørg for at vi kan placere ikonet absolut i forhold til denne container
+     og centrer meta-row samme som hr (så ikonet stopper hvor linjen stopper) */
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Dato + temperatur + ikon i samme række */
+#date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2rem; /* større tekst */
+  opacity: 0.95;
+  text-align: left;
+
+  /* Sørg for at dato + temp + ikon forbliver på samme linje */
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+#date .date-text {
+  font-weight: 500;
+}
+
+#date .temp {
+  font-size: 2rem; /* matchet størrelse */
+  font-weight: 700;
+}
+
+/* Ikonet: flyt ud til højre og placer det indenfor .meta-row's bredde */
+#date #weather-icon {
+  width: 128px;
+  height: 128px;
+  display: block;
+
+  /* fjern tidligere margin/translate, brug absolut positionering */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0;
+}
+
+/* Mobile: mildere forskydning så layout ikke bryder */
+@media (max-width: 520px) {
+  .meta-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  #date, #date .temp { font-size: 1rem; }
+  #date {
+    white-space: normal; /* tillad brud på små skærme */
+  }
+
+  /* På mobil: sæt ikonet tilbage i normal flow under datoen */
+  #date #weather-icon {
+    position: static;
+    transform: none;
+    margin-left: 18px;
+    width: 96px;  /* mobil: dobbelt størrelse */
+    height: 96px;
+  }
+}

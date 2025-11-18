@@ -1,0 +1,15 @@
+/* Variabler: base størrelser og farver til layout og komponenter */
+:root {
+  /* typografi og skalering */
+  --base-font-size: 18px;
+
+  /* venstre kolonne: antal rækker og højde pr. række */
+  --left-rows: 5;
+  --row-height: 78px;
+
+  /* farvetema for bokse */
+  --box-bg: #425462;
+  --box-text: #ffffff;
+  --box-muted: #d7dde6;
+  --box-accent: rgba(255,255,255,0.08);
+}
