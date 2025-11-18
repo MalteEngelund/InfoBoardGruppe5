@@ -1,3 +1,7 @@
+/* Kilde for farverne:
+https: //github.com/MalteEngelund/InfoBoardGruppe5/blob/Jack's-testing-part-2/scss/partials/_busschedule.scss
+*/
+
 $bus-nepal: #1a26d4;
 $bus-nepal-light: #b5b5ff;
 $bus-yellow: #d6af5499;
