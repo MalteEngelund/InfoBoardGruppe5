@@ -1,15 +1,20 @@
-/* Kilde for farverne:
+/* Kilde for de fleste af farverne:
 https: //github.com/MalteEngelund/InfoBoardGruppe5/blob/Jack's-testing-part-2/scss/partials/_busschedule.scss
+
+Nogle var ikke gennemsigtig (hex-farver). Nu har de alle sammen en "alfa parameter".
 */
 
-$bus-nepal: #1a26d4;
-$bus-nepal-light: #b5b5ff;
-$bus-yellow: #d6af5499;
-$bus-yellow-light: #F5C96188;
+$bus-transparent-nepal: #1a26d499;
+$bus-transparent-nepal-light: #b5b5ff99;
+$bus-transparent-yellow: #d6af5499; 
+$bus-transparent-yellow-light: #F5C96188; 
 /* Rejected because it is practically the same as bus-light-orange, but doesn't have as much of a family relationship to nepal light. 
 $colororange1: #f3701899; 
 */
-$bus-orange-light: #f4690c99;
+/* For the dark transparent safety orange, see global variable $color-transparent-orange */
+$bus-transparent-orange-light: #f4690c99;
 /* Practically the same as very-light-green (see global variables), which is taken from Figma, but looks better next to the above. 
 */
-$bus-green-light: #97BEAC99;
+$bus-transparent-dark-green: #146e5799;
+$bus-transparent-green-light: #97BEAC99;
+
