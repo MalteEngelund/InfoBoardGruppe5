@@ -2,8 +2,8 @@
 
 // Klokken større
 #clock {
-  /* Forøget størrelse (ca. dobbelt): min 7rem, flydende, maks 14rem */
-  font-size: clamp(7rem, 8vw, 14rem);
+  /* Halveret tekst: min ~1.75rem, flydende, maks ~3.5rem */
+  font-size: clamp(1.75rem, 2vw, 3.5rem);
   font-weight: 800;
   line-height: 1;
   color: $clock-color;

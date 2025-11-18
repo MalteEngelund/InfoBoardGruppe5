@@ -2,25 +2,23 @@
 
 .app {
   /* Match meta/hr width so nyheder flugter med kantine og linjen */
-  width: min(90%, 1100px);
-  /* Brug samme max-bredde som menu-grid (1080px) så kanter flugter */
-  max-width: 1080px;
+  width: min(90%, 560px);
+  /* Brug halveret max-bredde så nyheds-appen flugter med den nye, mindre kantine */
+  max-width: 540px;
   /* Samme lodrette afstand som mellem ur og kantine */
-  margin: 3.5rem auto 16px;
+  margin: 3.5rem auto 12px;
   /* Samme semitransparente baggrund som kantine */
   background: rgba(66,84,98,0.7);
   color: var(--box-text);
-  padding: 16px;
+  padding: 0.6rem;
   border-radius: $radius;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   box-sizing: border-box;
-  font-size: 2rem; /* match kantine tekststørrelse */
+  font-size: 0.9rem; /* lidt mindre for at passe til den komprimerede visning */
 }
 
-.app__header { margin-bottom: 16px; }
-.app__header h1 { margin: 0; font-size: inherit; line-height: 1; }
-
-.feed { display: grid; gap: 16px; width: 100%; }
+.app__header { margin-bottom: 0.75rem; }
+.feed { display: grid; gap: 1rem; width: 100%; }
 
 .feed__loading,
 .feed__error {

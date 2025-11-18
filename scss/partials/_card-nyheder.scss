@@ -5,21 +5,21 @@
 
 .card {
   display: flex;
-  gap: 0;
-  align-items: stretch;
+  gap: 0.4rem;
+  align-items: flex-start;
   background: transparent;
   border-radius: 0;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(13, 38, 59, 0.06);
 }
 
-/* Indhold (tekstboks) - fylder samme højde som billedet */
+/* Indhold (tekstboks) */
 .card__content {
-  padding: 20px;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: auto;
   box-sizing: border-box;
   /* match kantine semitransparente baggrund */
   background: rgba(66,84,98,0.7);
@@ -28,15 +28,14 @@
   border-radius: 0;
   box-shadow: 0 1px 3px rgba(2,6,23,0.04);
 
-  /* Forøgede, responsive tekststørrelser (ca. dobbelt) */
-  font-size: clamp(28px, 2.0vw, 36px);
-  line-height: 1.25;
+  /* mindre tekst passende for halveret layout */
+  font-size: clamp(0.75rem, 0.8vw, 0.95rem);
+  line-height: 1.35;
 
-  /* behold højde/flow men gør indhold fleksibelt */
-  flex: 0 0 $card-image-width;
-  width: $card-image-width;
-  height: $card-image-height;
-  min-width: $card-image-width;
+  /* procentbaseret breddefordeling: tekst ca. 60% - fjernet min-height så kort ikke tvinges til at blive højt */
+  flex: 0 0 60%;
+  width: 60%;
+  min-width: 12rem; /* tidligere 320px -> 20rem (20 * 16px = 320px hvis base 16px) */
   overflow: auto; /* hvis indhold er længere end kassen, vis scroll */
 
   a { color: rgba(230,240,251,0.95); text-decoration: none; }
@@ -44,8 +43,8 @@
 
   /* Titel: fordoblet */
   .card__title, .card__title a {
-    margin: 0 0 6px 0;
-    font-size: clamp(32px, 4.0vw, 52px);
+    margin: 0 0 0.35rem 0;
+    font-size: clamp(0.85rem, 1.0vw, 1.1rem);
     font-weight: 700;
     line-height: 1.05;
     color: inherit;
@@ -54,15 +53,15 @@
 
   /* Meta/dato: fordoblet */
   .card__meta {
-    font-size: clamp(22px, 2.0vw, 26px);
+    font-size: clamp(0.65rem, 0.8vw, 0.85rem);
     opacity: 0.95;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
 
   /* Uddrag: mindre og clamp til max linjer */
   /* stylelint-disable property-ignored-due-to-display */
   .card__excerpt {
-    font-size: clamp(11px, 0.9vw, 13px);
+    font-size: clamp(0.75rem, 0.8vw, 0.9rem);
     margin: 0;
     color: rgba(235,245,255,0.95);
 
@@ -79,7 +78,7 @@
   /* stylelint-enable property-ignored-due-to-display */
 }
 
-/* Billedcontainer: begræns størrelse, brug billedets naturlige højde */
+/* Billedcontainer: brug variabel fra variables-nyheder (nu mindre) */
 .card__image {
   flex: 0 0 $card-image-width;
   width: $card-image-width;

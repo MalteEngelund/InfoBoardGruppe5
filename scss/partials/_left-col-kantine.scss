@@ -2,7 +2,7 @@
 .days-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.6rem;
   /* Vis alle dage samtidigt: fjern faste højdebegrænsninger og scrollbar */
   min-height: auto;
   max-height: none;
@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 0.5rem 0.6rem;
   border-radius: 6px;
   background: #fafafa;
   border: 1px solid #eee;
@@ -34,7 +34,7 @@
 
 /* Fuldt liste-element for dag med detaljer */
 .day-list-item {
-  padding: 12px 14px;
+  padding: 0.6rem 0.75rem;
   border-radius: 6px;
   background: #fafafa;
   border: 1px solid #eee;
@@ -48,7 +48,7 @@
   }
 
   .day-name-left {
-    margin: 0 0 8px 0;
+    margin: 0 0 0.5rem 0;
     /* Titel arver samme størrelse — kan evt. differentieres hvis ønsket */
     font-size: inherit;
     font-weight: 800;

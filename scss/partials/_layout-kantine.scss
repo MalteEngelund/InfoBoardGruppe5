@@ -1,17 +1,17 @@
 /* Layout: hovedgrid og kolonneopsætning */
 .menu-grid {
   display: grid;
-  grid-template-columns: 540px 540px;
+  /* halveret kolonne-bredde (visuelt halveret) */
+  grid-template-columns: 270px 270px;
   gap: 0;
-  /* align width with hr/meta-row: stop where linjen stopper */
-  width: min(90%, 1100px);
-  /* match column total: 540 + 540 = 1080 so indhold flugter præcist */
-  max-width: 1080px;
+  /* mindre container så den optager mindre lodret/horisontalt rum */
+  width: min(90%, 560px);
+  max-width: 540px;
   margin: 0 auto;
   align-items: stretch;
 
-  /* Brug samme tekststørrelse som ur/vejr (2rem) */
-  font-size: 2rem;
+  /* Lad indhold arve den globale base-font (defineret via --base-font-size) */
+  /* font-size: inherit; */ /* Ikke nødvendigt; børn arver automatisk */
 }
 
 /* Sikr afstand mellem ur og kantine-sektionen */

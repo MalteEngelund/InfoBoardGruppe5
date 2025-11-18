@@ -33,7 +33,7 @@ hr {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  font-size: 2rem; /* større tekst */
+  font-size: 1rem; /* halveret i forhold til før */
   opacity: 0.95;
   text-align: left;
 
@@ -47,7 +47,7 @@ hr {
 }
 
 #date .temp {
-  font-size: 2rem; /* matchet størrelse */
+  font-size: 1rem; /* halveret i forhold til før */
   font-weight: 700;
 }
 
