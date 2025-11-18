@@ -24,3 +24,27 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Fjern venstre 'kant' ved at sikre top-level kolonner og sub-kolonner ikke har indvendig padding/margin */
+.top-level-grid-by-Marie-Pierre-Lessard,
+.top-level-column-to-left-by-Marie-Pierre-Lessard,
+.top-level-column-to-right-by-Marie-Pierre-Lessard,
+.sub-column-to-left-by-Marie-Pierre-Lessard,
+.sub-column-to-right-by-Marie-Pierre-Lessard {
+  margin: 0;
+  padding: 0;
+  background: transparent; /* undgå forskellig farve der laver en synlig kant */
+  box-sizing: border-box;
+}
+
+/* Hvis enkelte sub-columns tidligere fik padding-inline, overskriv den eksplicit */
+.sub-column-to-left-by-Marie-Pierre-Lessard,
+.sub-column-to-right-by-Marie-Pierre-Lessard {
+  padding-inline: 0;
+}
+
+/* Sikr at .menu-grid er centreret uden ekstra venstre offset */
+.menu-grid {
+  margin-left: auto;
+  margin-right: auto;
+}
