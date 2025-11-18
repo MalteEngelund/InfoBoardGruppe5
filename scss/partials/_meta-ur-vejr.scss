@@ -53,8 +53,8 @@ hr {
 
 /* Ikonet: flyt ud til højre og placer det indenfor .meta-row's bredde */
 #date #weather-icon {
-  width: 128px;
-  height: 128px;
+  width: 64px;
+  height: 64px;
   display: block;
 
   /* fjern tidligere margin/translate, brug absolut positionering */
@@ -82,7 +82,7 @@ hr {
     position: static;
     transform: none;
     margin-left: 18px;
-    width: 96px;  /* mobil: dobbelt størrelse */
-    height: 96px;
+    width: 48px;
+    height: 48px;
   }
 }
