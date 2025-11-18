@@ -573,11 +573,14 @@ so that all global styling can be called from the same namespace.
   --box-accent: rgba(255,255,255,0.08);
 }
 
+/* @forward transfers the partials in the list below as a single partial, 
+so that all global styling can be called from the same namespace.
+*/
 /* base: font, baggrund og baseline-typografi */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  /* Fjernet global lys baggrund og ydre padding så der ikke opstår en synlig kant */
-  background: transparent;
+  /* Ensartet baggrund så underliggende farve ikke viser som kant */
+  background: #97b7c4;
   color: #222;
   margin: 0;
   padding: 0;
@@ -653,30 +656,6 @@ body {
 .left-col {
   display: flex;
   flex-direction: column;
-}
-
-/* Fjern venstre 'kant' ved at sikre top-level kolonner og sub-kolonner ikke har indvendig padding/margin */
-.top-level-grid-by-Marie-Pierre-Lessard,
-.top-level-column-to-left-by-Marie-Pierre-Lessard,
-.top-level-column-to-right-by-Marie-Pierre-Lessard,
-.sub-column-to-left-by-Marie-Pierre-Lessard,
-.sub-column-to-right-by-Marie-Pierre-Lessard {
-  margin: 0;
-  padding: 0;
-  background: transparent; /* undgå forskellig farve der laver en synlig kant */
-  box-sizing: border-box;
-}
-
-/* Hvis enkelte sub-columns tidligere fik padding-inline, overskriv den eksplicit */
-.sub-column-to-left-by-Marie-Pierre-Lessard,
-.sub-column-to-right-by-Marie-Pierre-Lessard {
-  padding-inline: 0;
-}
-
-/* Sikr at .menu-grid er centreret uden ekstra venstre offset */
-.menu-grid {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Dage-liste: scrollbar og højdebegrænsning */
