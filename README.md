@@ -1,7 +1,8 @@
 # InfoBoardGruppe5
 
-Opgavens afleveringsadresse er: 
-https://github.com/MalteEngelund/InfoBoardGruppe5/blob/main/README.md
+Opgavens afleveringsadresser er: 
+* https://github.com/MalteEngelund/InfoBoardGruppe5/blob/main/README.md
+* https://infoboardgruppe5.netlify.app
 
 ## Medlemmer
 Holdets medlemmer er: 
