@@ -3,9 +3,7 @@
 .app {
   /* Match meta/hr width so nyheder flugter med kantine og linjen */
   width: min(90%, 1100px);
-  /* Brug samme max-bredde som menu-grid (1080px) så kanter flugter */
   max-width: 1080px;
-  /* Samme lodrette afstand som mellem ur og kantine */
   margin: 3.5rem auto 16px;
   /* Samme semitransparente baggrund som kantine */
   background: rgba(66,84,98,0.7);
@@ -15,6 +13,11 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   box-sizing: border-box;
   font-size: 2rem; /* match kantine tekststørrelse */
+
+  /* Begræns højde så .app stopper over footer og får intern scroll */
+  max-height: calc(100vh - 9rem); /* juster 9rem efter ønsket afstand over footer */
+  overflow-y: auto;
+  padding-bottom: 1.5rem; /* ekstra luft i bunden så indhold ikke klæber til kanten */
 }
 
 .app__header { margin-bottom: 16px; }
@@ -29,4 +32,12 @@
   border-radius: $radius;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   color: $muted;
+}
+
+/* match media-queries med menu-grid */
+@media (min-width: 2560px) {
+  .app { width: min(90%, 2400px); max-width: 2400px; }
+}
+@media (min-width: 3840px) {
+  .app { width: min(90%, 3200px); max-width: 3200px; }
 }

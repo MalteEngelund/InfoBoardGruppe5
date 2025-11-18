@@ -11,8 +11,9 @@ Didact Gothic
 Figtree, Montserrat, Plus Jakarta Sans */
 html {
     font-family: "Didact Gothic", Arial, Helvetica, sans-serif;
-    font-size: clamp(16px, variables.$root-em, variables.$gr-x-root-em);
-    line-height: variables.$gr-x-root-em;
+    /* Mindre/læselig skalering på store skærme — maks begrænset så det ikke eksploderer på 4K */
+    font-size: clamp(16px, 1.2vw, 22px);
+    line-height: 1.25;
     color: variables.$color-white;
-};
+}
 

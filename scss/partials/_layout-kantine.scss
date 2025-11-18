@@ -10,9 +10,11 @@
   margin: 0 auto;
   align-items: stretch;
 
-  /* Brug samme tekststørrelse som ur/vejr (2rem) */
-  font-size: 2rem;
+  /* Fjern global font-size override her — lad børn arve passende størrelser */
 }
+
+/* Fjern de tidligere store media-queries der udvidede grid til 4K.
+   Hvis du vil have større container på 4K, genindfør en mindre aggressiv variant. */
 
 /* Sikr afstand mellem ur og kantine-sektionen */
 #cantineByJack {
